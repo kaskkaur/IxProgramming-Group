@@ -6,8 +6,3 @@ $(function() {
 	var exampleView = new ExampleView($("#exampleView"));
 
 });
-
-
-$( document ).ready(function() {
-  $( ".anim" ).fadeIn( "slow" );
-});
