@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css">
+
+  </head>
+  <body>
+	<div class="header mainheader">
+		<h1>HOMELETTE  <br>  </h1>
+	</div>
+
+		   
+			   <div class="container homelette">
+			    <div class="col-md-8 selector"> <!-- whole selector area -->
+			    	<div class="col-md-12 selector-menu "> 
+			    		 
+			    			<div class="col-md-4"> 
+
+						    		 <h2 id="MyDinnerFor">  My dinner for </h2> 	
+
+							</div>
+
+							<div class="col-md-4"> 
+
+						    		 <h2>
+						    		 	<span class="input-group"> 
+						    		 	
+										<input type="text" value="3" class="field left GuestsOverviewNumber" readonly>	
+										
+									</span>
+								</h2>
+
+
+							</div>
+
+					
+							<div class="col-md-4"> 
+
+								<a class="btn btn-group btn-group-md pull-right center-block " href="select.html" role="group" id="BackToSelector">
+									<type="button" class="btn btn-default btn-custom OverviewBackToSelector"> Go back and edit dinner </a>
+
+				    		 
+							</div>
+
+
+								<hr>
+
+			    	</div> <!-- "My dinner for" and button end -->
+
+			    		<div class="col-lg-3"> <!-- start of dish column -->
+							<div class="panel panel-warning anim">
+					  			<div class="panel-heading">Meatballs
+
+					  			<span><button class="button button-default glyphicon glyphicon-plus AddButton"></button></span>
+					  			
+					  			<span><button class="button button-default glyphicon glyphicon glyphicon-th-list AddButton"></button></span>
+
+
+					  			</div>
+					  			<div class="panel-body">
+
+					  				<img src="images/meatballs.jpg"></img>
+
+					  			</div>
+					  			<div class="panel-footer">232SEK</div>
+							</div>
+						</div> <!-- end of dish column -->
+
+						<div class="col-lg-3"> <!-- start of dish column -->
+							<div class="panel panel-warning anim">
+					  			<div class="panel-heading">Icecream
+					  				<span><button class="button button-default glyphicon glyphicon-plus AddButton btn-custo"></button></span>
+
+					  				<span><button class="button button-default glyphicon glyphicon glyphicon-th-list AddButton"></button></span>
+
+					  			</div>
+					  			<div class="panel-body">
+
+					  				<img src="images/icecream.jpg"></img>
+
+					  			</div>
+					  			<div class="panel-footer">242SEK</div>
+							</div>
+						</div> <!-- end of dish column -->
+
+						<div class="col-lg-3"> <!-- start of dish column -->
+							<div class="panel panel-warning anim">
+					  			<div class="panel-heading">Sourdough
+
+					  				<span><button class="button button-default glyphicon glyphicon-plus AddButton"></button></span>
+
+					  				<span><button class="button button-default glyphicon glyphicon glyphicon-th-list AddButton"></button></span>
+					  			</div>
+					  			<div class="panel-body">
+
+					  				<img src="images/sourdough.jpg"></img>
+
+					  			</div>
+					  			<div class="panel-footer">232SEK</div>
+							</div>
+						</div> <!-- end of dish column -->
+
+						<div class="col-lg-3"> <!-- start of dish column -->
+							<div class="panel panel-warning anim">
+					  			<div class="panel-heading">Toast
+					  				<span><button class="button button-default glyphicon glyphicon-plus AddButton"></button></span>
+
+					  				<span><button class="button button-default glyphicon glyphicon glyphicon-th-list AddButton"></button></span>
+
+					  			</div>
+					  			<div class="panel-body">
+
+					  				<img src="images/toast.jpg"></img>
+
+					  			</div>
+					  			<div class="panel-footer">292SEK</div>
+							</div>
+						</div> <!-- end of dish column -->
+
+
+
+			    		<div class="row"> <!-- items list start -->
+
+			    			<hr>
+			    			<br>
+			    			<br>
+
+
+			    		
+
+						
+					<div class="row">
+						
+						
+							<div class="col-md-6 text-right center-block pull-right">
+
+
+						
+						<div class="input-group overview-input text-right" style="width: 200px;" id="OverviewTotal">
+							   <span class="input-group-addon" id="OverviewTotal TotalColor">Total</span>
+							  <input type="text" class="form-control" aria-label="Amount" readonly value="892">
+							   <span class="input-group-addon"id="OverviewTotal TotalColor" >SEK</span>
+						</div>
+						
+					</div>
+					
+				
+			</div>
+
+
+				<div class="row">
+					<div class="container">
+				    		<div class="col-md-6 PrintFullRecipe"> 
+							<a id="PrintFullRecipe" name="singlebutton" class="btn btn-primary btn-custom PrintFullRecipe" href="dinner_preparation.html">Print full recipe!</a> 
+							</div>
+						</div>
+				</div>
+
+   						</div> <!-- items list end -->			    	
+			    	
+			    </div> 			            
+			</div> 
+		</div> <!-- selector area END -->
+	</div>
+
+	   
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+	<script src="jquery.spinner.js"></script>
+
+	<link href="bootstrap-spinner.css" rel="stylesheet">
+
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/exampleView.js"></script>
+	<script src="js/view/exampleViewController.js"></script>
+  </body>
+</html>
