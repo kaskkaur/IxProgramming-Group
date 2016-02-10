@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css">
+
+  </head>
+  <body>
+	<div class="header mainheader">
+		<h1>HOMELETTE  <br>  </h1>
+	</div>
+
+		 <div class="container main"> <!-- start of sidelist-->
+			<div class="row main">
+			    <div class="col-md-4 sidelist">
+						<div id="guests">
+								<p> My dinner 
+
+								
+
+
+
+								 </p>
+		
+							<span>
+								<div class="input-group">
+								  <span class="input-group-addon">#</span>
+								  <input value="5" type="text" class="form-control" aria-label="Amount" id="GuestsNumber">
+								  <span class="input-group-addon">People</span>
+								</div>
+							</span>
+
+							<div class="quantity" value="0">
+				          		<button id="minusGuest" class="btn btn-custom-color button-increment"><span class="glyphicon glyphicon-minus"></span></button>
+								<button id="plusGuest" class="btn btn-custom-color button-increment"><span class="glyphicon glyphicon-plus"></span></button>
+							</div>
+
+
+						</div> <!-- end of 1st "my dinner guests" block on the left -->
+
+					<div class="ShoppingList">
+						<table class="table table-hover" style="width:100%" id="SidelistTable">
+							  <tr>
+							  	<th> Item </th>
+							  	<th> Price SEK </th>
+							    
+							  </tr>
+							  <tr>
+							    <td>Eve</td>
+							    <td>94</td>
+							  </tr>
+							  <tr>
+							  	<td><a href="dish.html">Meatballs</td>
+							    <td>50</td>
+							</tr>
+						</table>
+					</div>
+
+
+				<div class="total">
+						<div class="input-group">
+							   <span class="input-group-addon TotalColor">Total</span>
+							  <input type="text" class="form-control" aria-label="Amount">
+							   <span class="input-group-addon TotalColor">SEK</span>
+						</div>
+
+						<a class="btn-group btn-group-md btn-custom" role="group" id="ConfirmButton" href="dinner_overview.html">
+						<type="button" class="btn btn-default btn-custom"> Confirm dinner </button>
+				
+						</a>
+
+
+				</div>
+
+
+		</div> <!-- end of sidelist-->
+			    
+			    <div class="col-md-8 selector"> <!-- whole selector area -->
+			    	<div class="col-md-12 selector-menu"> 
+			    		<h2> <small id="selecttext"> SELECT DISH </h2>
+			    		<hr>
+
+			    		<div class="row"> <!-- selector menu keywords and accordion -->
+						
+						  <div class="col-lg-6">
+						    <div class="input-group">
+						      <input type="text" class="form-control" placeholder="Enter keywords..">
+						      <span class="input-group-btn">
+						        <button class="btn btn-default" type="button">
+						        	<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+
+						        </button>
+						      </span>
+						    </div><!-- /input-group -->
+						  </div><!-- /.col-lg-6 -->
+						<!-- /.row -->
+
+
+
+
+
+			    	<div class="col-lg-6">
+
+			    		<select class="form-control">
+					    <option value="main">Main</option>
+					    <option value="dessert">Dessert</option>
+					    <option value="appetiser">Appetiser</option>
+					    <option value="drinks">Drinks</option>
+					    <option value="other">Other</option>
+					</select>
+			    		
+			    	</div>
+
+			    	
+
+
+			    	
+			    </div> <!-- selector menu keywords and accordion END -->
+
+
+			        
+			    
+			            
+			</div> 
+
+			
+		<div class="col-lg-3"> <!-- start of dish column -->
+			<div class="panel panel-warning anim">
+	  			<div class="panel-heading">Meatballs
+
+	  			<span><button class="button button-default glyphicon glyphicon-plus AddButton"></button></span>
+	  			
+	  			<span><button class="button button-default glyphicon glyphicon glyphicon-th-list AddButton"></button></span>
+
+
+	  			</div>
+	  			<div class="panel-body">
+
+	  				<img src="images/meatballs.jpg"></img>
+
+	  			</div>
+	  			<div class="panel-footer">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	  			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	  			.</div>
+			</div>
+		</div> <!-- end of dish column -->
+
+		<div class="col-lg-3"> <!-- start of dish column -->
+			<div class="panel panel-warning anim">
+	  			<div class="panel-heading">Icecream
+	  				<span><button class="button button-default glyphicon glyphicon-plus AddButton btn-custo"></button></span>
+
+	  				<span><button class="button button-default glyphicon glyphicon glyphicon-th-list AddButton"></button></span>
+
+	  			</div>
+	  			<div class="panel-body">
+
+	  				<img src="images/icecream.jpg"></img>
+
+	  			</div>
+	  			<div class="panel-footer">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	  			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	  			.</div>
+			</div>
+		</div> <!-- end of dish column -->
+
+		<div class="col-lg-3"> <!-- start of dish column -->
+			<div class="panel panel-warning anim">
+	  			<div class="panel-heading">Sourdough
+
+	  				<span><button class="button button-default glyphicon glyphicon-plus AddButton"></button></span>
+
+	  				<span><button class="button button-default glyphicon glyphicon glyphicon-th-list AddButton"></button></span>
+	  			</div>
+	  			<div class="panel-body">
+
+	  				<img src="images/sourdough.jpg"></img>
+
+	  			</div>
+	  			<div class="panel-footer">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	  			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	  			.</div>
+			</div>
+		</div> <!-- end of dish column -->
+
+		<div class="col-lg-3"> <!-- start of dish column -->
+			<div class="panel panel-warning anim">
+	  			<div class="panel-heading">Toast
+	  				<span><button class="button button-default glyphicon glyphicon-plus AddButton"></button></span>
+
+	  				<span><button class="button button-default glyphicon glyphicon glyphicon-th-list AddButton"></button></span>
+
+	  			</div>
+	  			<div class="panel-body">
+
+	  				<img src="images/toast.jpg"></img>
+
+	  			</div>
+	  			<div class="panel-footer">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	  			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	  			.</div>
+			</div>
+		</div> <!-- end of dish column -->
+
+
+
+
+		</div> <!-- selector area END -->
+
+			   
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+	<script src="jquery.spinner.js"></script>
+
+	<link href="bootstrap-spinner.css" rel="stylesheet">
+
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/exampleView.js"></script>
+	<script src="js/view/exampleViewController.js"></script>
+  </body>
+</html>

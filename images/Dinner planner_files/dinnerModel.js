@@ -6,62 +6,12 @@ var DinnerModel = function() {
 
 
 	this.setNumberOfGuests = function(num) {
-		
-
-		/* alert('SETnumberofquests func initiated')
-		var plusName = document.getElementById("plusGuest")
-		var minusName = document.getElementById("minusGuest")
-		var elName = document.getElementById("GuestsNumber")
-		var oldValue = elName.value;
-
-		plusName.onclick = function() {
-			var newVal = parseFloat(oldValue) + 1;
-
-			$('#GuestsNumber').val(newVal);
-		} 
-
-		*/
-
-
-		 alert('SETnumberofGuests func initiated')
-
-
-		$(".button-increment").on("click", function() {
-
-		  var $button = $(this);
-		  var oldValue = $("#GuestsNumber").val();
-
-		  if ($button.is("#plusGuest")) {
-			  var newVal = parseFloat(oldValue) + 1;
-			} else {
-		   // no negative values
-		    if (oldValue > 0) {
-		      var newVal = parseFloat(oldValue) - 1;
-		    } else {
-		      newVal = 0;
-		    }
-		  }
-
-		  $("#GuestsNumber").val(newVal);
-		  
-		  console.log(newVal)
-		
-
-		});
-		
-
+		//TODO Lab 2
 	}
 
 	// should return 
 	this.getNumberOfGuests = function() {
-		alert('numberofquests func initiated')
-		var elName = document.getElementById("GuestsNumber")
-		var num_guests = elName.value;
-		console.log(num_guests)
-
-		//var num_guests = $('GuestsNumber').val(); - jQuery
-		
-
+		//TODO Lab 2
 	}
 
 	//Returns the dish that is on the menu for selected type 

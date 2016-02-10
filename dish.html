@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css">
+
+  </head>
+  <body>
+	<div class="header mainheader">
+		<h1>HOMELETTE  <br>  </h1>
+	</div>
+
+		<div class="container main">
+			<div class="row main">
+			    <div class="col-md-4 sidelist">
+						<div id="guests">
+								<p> My dinner </p>
+		
+							<span>
+								<div class="input-group">
+								  <span class="input-group-addon ">#</span>
+								  <input type="text" class="form-control" aria-label="Amount">
+								  <span class="input-group-addon ">People</span>
+								</div>
+							</span>
+
+							<div class="quantity" value="0">
+				          		<button id="minusGuest" class="btn btn-custom-color"><span class="glyphicon glyphicon-minus "></span></button>
+								<button id="plusGuest" class="btn btn-custom-color"><span class="glyphicon glyphicon-plus"></span></button>
+							</div>
+
+
+						</div> <!-- end of 1st "my dinner guests" block on the left -->
+
+					<div class="ShoppingList">
+						<table class="table table-hover" style="width:100%" id="SidelistTable">
+							  <tr>
+							  	<th> Item </th>
+							  	<th> Price SEK </th>
+							    
+							  </tr>
+							  <tr>
+							    <td>Eve</td>
+							    <td>94</td>
+							  </tr>
+							  <tr>
+							  	<td>Fish</td>
+							    <td>50</td>
+							</tr>
+								<!-- <th>  </th>
+							  	<th> Total SEK</th>
+							  <tr>
+							  	<th>  </th>
+							  	<th id="SidelistTotal">232.32</th>
+
+							  </tr> optional --> 
+							  
+						</table>
+					</div>
+
+
+				<div class="total">
+						<div class="input-group">
+							   <span class="input-group-addon TotalColor ">Total</span>
+							  <input type="text" class="form-control" aria-label="Amount">
+							   <span class="input-group-addon TotalColor ">SEK</span>
+						</div>
+
+
+						<div id="ConfirmButtonBox">
+						<a class="btn-group btn-group-md btn-custom" role="group" id="ConfirmButton" href="dinner_overview.html">
+						<type="button" class="btn btn-default btn-custom"> Confirm dinner </button>
+						</a>
+				
+						</div>
+
+				</div>
+
+
+		</div> <!-- end of sidelist-->
+			    
+			    <div class="col-md-8 selector"> <!-- whole selector area -->
+
+			    	<div class="row">
+
+			    		<div class="col-lg-6 selector-ingredients">
+			    			<div class="col-lg-6">
+			    				<h3>Meatballs for</h3>
+
+			    			</div>
+
+
+
+			    			<div class="col-lg-6">
+
+			    				
+			    				<span class="input-group">  	
+										<h3><input type="text" value="3" class="GuestsOverviewNumberDish" readonly>	</h3>
+
+									</span>
+
+			    			</div>
+			    			
+	
+						  	<div class="recipe-lasagne">
+
+				    			 <table class="table table-hover">
+				    			  
+				    				<th>Amount</th>
+				    				<th>Unit</th>
+				    				<th>Item</th>
+				    				<th>Price</th>
+				    			  <tr>
+								    <td>2</td>
+								    <td>tbsp</td>
+								    <td>Olive oil</td>
+								    <td>0.20</td>
+								  </tr>
+								  <tr>
+								    <td>2</td>
+								    <td>tbsp</td>
+								    <td>Olive oil</td>
+								    <td>0.20</td>
+								  </tr>
+								  <tr>
+								    <td>2</td>
+								    <td>tbsp</td>
+								    <td>Olive oil</td>
+								    <td>0.20</td>
+								  </tr>
+								  <tr>
+								    <td>2</td>
+								    <td>tbsp</td>
+								    <td>Olive oil</td>
+								    <td>0.20</td>
+								  </tr>
+								  <tr>
+								    <td>2</td>
+								    <td>tbsp</td>
+								    <td>Olive oil</td>
+								    <td>0.20</td>
+								 </tr>
+								 	<th></th>
+				    				<th></th>
+				    				<th></th>
+				    				<th>Total SEK</th>
+				    			<tr>
+				    				<th></th>
+				    				<th></th>
+				    				<th></th>
+				    				<th id="DishTotal">239.23</th>
+				    			</tr>
+								</table>
+
+
+
+			    			</div> <!-- end of lasagne recipe -->
+			    			<hr>
+			    			<div id="ConfirmButtonBox">
+							<a class="btn-group btn-group-md" role="group" id="ConfirmDish" href="dinner_overview.html">
+							<type="button" class="btn btn-default btn-custom"> Confirm Dish </button>
+							</a>
+   
+						 </div><!-- /.col-lg-6 -->
+
+
+
+
+
+
+			    		</div>
+
+
+						 <div class="col-lg-6 selector-method" id="Meatballs">
+
+						 	<h2>Meatballs</h2>
+						 	<img src="images/meatballs.jpg"></img>
+						 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						 	quis nostrud exercitation ullamcolorem Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum..</p>
+
+						 
+							<a class="btn btn-group btn-group-md" role="group" id="BackToSelector" href="select.html">
+							<type="button" class="btn btn-default btn-custom"> Back to Select Dish </a>
+							
+		
+			    	
+			    		</div>
+			            
+			</div> <!-- selector menu keywords and accordion END -->
+
+
+
+		</div> <!-- selector area END -->
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+	<script src="jquery.spinner.js"></script>
+
+	<link href="bootstrap-spinner.css" rel="stylesheet">
+
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/exampleView.js"></script>
+	<script src="js/view/exampleViewController.js"></script>
+  </body>
+</html>
