@@ -7,7 +7,7 @@ $(function() {
 
 	
 	window.onload = model.setNumberOfGuests;
-	
+
 
 });
 

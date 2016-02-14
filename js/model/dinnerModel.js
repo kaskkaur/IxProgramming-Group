@@ -23,7 +23,8 @@ var DinnerModel = function() {
 		*/
 
 
-		 alert('SETnumberofGuests func initiated')
+
+		 /* alert('SETnumberofGuests func initiated')
 
 
 		$(".button-increment").on("click", function() {
@@ -48,14 +49,14 @@ var DinnerModel = function() {
 		
 
 		});
-		
+		*/
 
 	}
 
 	// should return 
 	this.getNumberOfGuests = function() {
 		alert('numberofquests func initiated')
-		var elName = document.getElementById("GuestsNumber")
+		var elName = document.getElementById("GuestsNumber");
 		var num_guests = elName.value;
 		console.log(num_guests)
 
