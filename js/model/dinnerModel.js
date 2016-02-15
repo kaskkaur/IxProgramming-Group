@@ -4,6 +4,10 @@ var DinnerModel = function() {
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 
+	
+	
+	
+
 
 	this.setNumberOfGuests = function(num) {
 		
@@ -18,77 +22,180 @@ var DinnerModel = function() {
 			var newVal = parseFloat(oldValue) + 1;
 
 			$('#GuestsNumber').val(newVal);
+
+
 		} 
 
 		*/
+		// alert('SELECTdishfunc initiated')
 
+		// $(".button-increment").on("click", function() {
 
+		//   var $button = $(this);
+		//   var oldValue = $("#GuestsNumber").val();
 
-		 /* alert('SETnumberofGuests func initiated')
+		//   if ($button.is("#plusGuest")) {
+		// 	  var newVal = parseFloat(oldValue) + 1;
+		// 	} else {
+		//    // no negative values
+		//     if (oldValue > 0) {
+		//       var newVal = parseFloat(oldValue) - 1;
+		//     } else {
+		//       newVal = 0;
+		//     }
+		//   }
+
+		//   $("#GuestsNumber").val(newVal);
+		  
+		//   console.log(newVal)
+		
+
+		// });
+		
+		
+
 
 
 		$(".button-increment").on("click", function() {
 
+
+		  
 		  var $button = $(this);
-		  var oldValue = $("#GuestsNumber").val();
+		  var oldValue = numberOfGuests;
 
 		  if ($button.is("#plusGuest")) {
-			  var newVal = parseFloat(oldValue) + 1;
+			  var newVal = oldValue + 1;
+			  
 			} else {
 		   // no negative values
 		    if (oldValue > 0) {
-		      var newVal = parseFloat(oldValue) - 1;
+		      var newVal = oldValue - 1;
+		      
 		    } else {
 		      newVal = 0;
+		      
 		    }
-		  }
+		   
 
-		  $("#GuestsNumber").val(newVal);
+		  }		  
+		    console.log(newVal);
 		  
-		  console.log(newVal)
+		  $("#GuestsNumber").val(newVal);
+
 		
 
 		});
-		*/
 
 	}
 
 	// should return 
 	this.getNumberOfGuests = function() {
-		alert('numberofquests func initiated')
-		var elName = document.getElementById("GuestsNumber");
-		var num_guests = elName.value;
-		console.log(num_guests)
+		//alert('numberofquests func initiated')
+		//var elName = document.getElementById("GuestsNumber");
+		//var num_guests = elName.value;
+		//console.log(num_guests)
 
 		//var num_guests = $('GuestsNumber').val(); - jQuery
+		alert('SELECTdishfunc initiated')
+		
+		console.log(numberOfGuests)
+		numberOfGuests = newVal;
+		return numberOfGuests;
+		
 		
 
 	}
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
-		//TODO Lab 2
+
+		alert('SELECTdishfunc initiated')
+
+
+		type = starter
+		for (var key in dishes) {
+      	 if (dishes.type == type ){
+          	console.log(data[key].id);
+       }
+    }
+
+		
+
 	}
+
+
+
+
+		//TODO Lab 2
+	
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
+
+
+		for(var i = 0; i < menu.length; i++) {
+		    var obj = menu[i];
+
+		    console.log(obj.name);
+}
+
+
+
 		//TODO Lab 2
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-		//TODO Lab 2
+			for(var i = 0; i < menu.length; i++) {
+		    var obj = menu[i];
+
+		    console.log(obj.ingredients);
+
+
 	}
+}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-		//TODO Lab 2
-	}
+
+		// for(var i = 0; i < menu.length; i++) {
+		//     var obj = menu[i].ingredients.price;
+		    
+		//    totalprice = obj * numberOfGuests;
+		// }
+		//  console.log(totalprice);
+
+
+	// 	$.each(menu, function () {
+	// 		$.each(this.children, function (name, value) {
+
+	// 			console.log(name + "=" + value);
+	// 		});
+
+  		
+	// });
+
+	
+
+			$(menu).each(function(){
+			    var $this = $(this);
+			    $this.children(menu).each(function(){
+			        $this; // parent li
+			        this; // child li
+			        console.log(this)
+			    });
+			});
+
+
+
+
+}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		//TODO Lab 2 
+
+		
 	}
 
 	//Removes dish from menu
@@ -136,6 +243,114 @@ var DinnerModel = function() {
 	// defining the unit i.e. "g", "slices", "ml". Unit
 	// can sometimes be empty like in the example of eggs where
 	// you just say "5 eggs" and not "5 pieces of eggs" or anything else.
+	
+
+	var menu = [{
+		'id':101,
+		'name':'MD 2',
+		'type':'main dish',
+		'image':'bakedbrie.jpg',
+		'description':"Here is how you make it... Lore ipsum...",
+		'ingredients':[{ 
+			'name':'ingredient 1',
+			'quantity':1,
+			'unit':'pieces',
+			'price':8
+			},{
+			'name':'ingredient 2',
+			'quantity':15,
+			'unit':'g',
+			'price':7
+			},{
+			'name':'ingredient 3',
+			'quantity':10,
+			'unit':'ml',
+			'price':4
+			}]
+		},{
+		'id':102,
+		'name':'MD 3',
+		'type':'main dish',
+		'image':'meatballs.jpg',
+		'description':"Here is how you make it... Lore ipsum...",
+		'ingredients':[{ 
+			'name':'ingredient 1',
+			'quantity':2,
+			'unit':'pieces',
+			'price':8
+			},{
+			'name':'ingredient 2',
+			'quantity':10,
+			'unit':'g',
+			'price':7
+			},{
+			'name':'ingredient 3',
+			'quantity':5,
+			'unit':'ml',
+			'price':4
+			}]
+		},{
+		'id':102,
+		'name':'MD 4',
+		'type':'main dish',
+		'image':'meatballs.jpg',
+		'description':"Here is how you make it... Lore ipsum...",
+		'ingredients':[{ 
+			'name':'ingredient 1',
+			'quantity':1,
+			'unit':'pieces',
+			'price':4
+			},{
+			'name':'ingredient 2',
+			'quantity':12,
+			'unit':'g',
+			'price':7
+			},{
+			'name':'ingredient 3',
+			'quantity':6,
+			'unit':'ml',
+			'price':4
+			}]
+		},{
+		'id':200,
+		'name':'Chocolat Ice cream',
+		'type':'dessert',
+		'image':'icecream.jpg',
+		'description':"Here is how you make it... Lore ipsum...",
+		'ingredients':[{ 
+			'name':'ice cream',
+			'quantity':100,
+			'unit':'ml',
+			'price':6
+			}]
+		},{
+		'id':201,
+		'name':'Vanilla Ice cream',
+		'type':'dessert',
+		'image':'icecream.jpg',
+		'description':"Here is how you make it... Lore ipsum...",
+		'ingredients':[{ 
+			'name':'ice cream',
+			'quantity':100,
+			'unit':'ml',
+			'price':6
+			}]
+		},{
+		'id':202,
+		'name':'Strawberry',
+		'type':'dessert',
+		'image':'icecream.jpg',
+		'description':"Here is how you make it... Lore ipsum...",
+		'ingredients':[{ 
+			'name':'ice cream',
+			'quantity':100,
+			'unit':'ml',
+			'price':6
+			}]
+		}
+	];
+	
+	var numberOfGuests = 10;
 	var dishes = [{
 		'id':1,
 		'name':'French toast',

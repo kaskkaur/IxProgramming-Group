@@ -14,31 +14,31 @@ var ExampleView = function (container) {
 		
 
 
-		 alert('SETnumberofGuests func initiated')
+		//  alert('SETnumberofGuests func initiated')
 
 
-		$(".button-increment").on("click", function() {
+		// $(".button-increment").on("click", function() {
 
-		  var $button = $(this);
-		  var oldValue = $("#GuestsNumber").val();
+		//   var $button = $(this);
+		//   var oldValue = $("#GuestsNumber").val();
 
-		  if ($button.is("#plusGuest")) {
-			  var newVal = parseFloat(oldValue) + 1;
-			} else {
-		   // no negative values
-		    if (oldValue > 0) {
-		      var newVal = parseFloat(oldValue) - 1;
-		    } else {
-		      newVal = 0;
-		    }
-		  }
+		//   if ($button.is("#plusGuest")) {
+		// 	  var newVal = parseFloat(oldValue) + 1;
+		// 	} else {
+		//    // no negative values
+		//     if (oldValue > 0) {
+		//       var newVal = parseFloat(oldValue) - 1;
+		//     } else {
+		//       newVal = 0;
+		//     }
+		//   }
 
-		  $("#GuestsNumber").val(newVal);
+		//   $("#GuestsNumber").val(newVal);
 		  
-		  console.log(newVal)
+		//   console.log(newVal)
 		
 
-		});
+		// });
 
 
 	
