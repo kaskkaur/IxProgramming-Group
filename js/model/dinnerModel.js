@@ -24,7 +24,7 @@ var DinnerModel = function() {
 
 
 
-		 /* alert('SETnumberofGuests func initiated')
+		  alert('SETnumberofGuests func initiated')
 
 
 		$(".button-increment").on("click", function() {
@@ -49,7 +49,7 @@ var DinnerModel = function() {
 		
 
 		});
-		*/
+		
 
 	}
 
