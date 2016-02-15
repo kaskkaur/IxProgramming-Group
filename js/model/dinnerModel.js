@@ -54,6 +54,10 @@ var DinnerModel = function() {
 		
 		
 
+<<<<<<< HEAD
+=======
+		  alert('SETnumberofGuests func initiated')
+>>>>>>> 60fd0f829060ac611b52017dbcbd41abc443b288
 
 
 		$(".button-increment").on("click", function() {
@@ -85,6 +89,10 @@ var DinnerModel = function() {
 		
 
 		});
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 60fd0f829060ac611b52017dbcbd41abc443b288
 
 	}
 
