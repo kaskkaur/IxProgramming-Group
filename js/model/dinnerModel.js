@@ -5,59 +5,13 @@ var DinnerModel = function() {
 	// and selected dinner options for dinner menu
 
 	
-	
-	
 
 
 	this.setNumberOfGuests = function(num) {
 		
 
-		/* alert('SETnumberofquests func initiated')
-		var plusName = document.getElementById("plusGuest")
-		var minusName = document.getElementById("minusGuest")
-		var elName = document.getElementById("GuestsNumber")
-		var oldValue = elName.value;
+		  alert('SETnumberofGuests func initiated');
 
-		plusName.onclick = function() {
-			var newVal = parseFloat(oldValue) + 1;
-
-			$('#GuestsNumber').val(newVal);
-
-
-		} 
-
-		*/
-		// alert('SELECTdishfunc initiated')
-
-		// $(".button-increment").on("click", function() {
-
-		//   var $button = $(this);
-		//   var oldValue = $("#GuestsNumber").val();
-
-		//   if ($button.is("#plusGuest")) {
-		// 	  var newVal = parseFloat(oldValue) + 1;
-		// 	} else {
-		//    // no negative values
-		//     if (oldValue > 0) {
-		//       var newVal = parseFloat(oldValue) - 1;
-		//     } else {
-		//       newVal = 0;
-		//     }
-		//   }
-
-		//   $("#GuestsNumber").val(newVal);
-		  
-		//   console.log(newVal)
-		
-
-		// });
-		
-		
-
-<<<<<<< HEAD
-=======
-		  alert('SETnumberofGuests func initiated')
->>>>>>> 60fd0f829060ac611b52017dbcbd41abc443b288
 
 
 		$(".button-increment").on("click", function() {
@@ -69,45 +23,48 @@ var DinnerModel = function() {
 
 		  if ($button.is("#plusGuest")) {
 			  var newVal = oldValue + 1;
+			  numberOfGuests = newVal;
+			  
 			  
 			} else {
 		   // no negative values
 		    if (oldValue > 0) {
 		      var newVal = oldValue - 1;
+		      //numberOfGuests = newVal;
+		      numberOfGuests = newVal;
+		      
+		      
 		      
 		    } else {
 		      newVal = 0;
+		      //numberOfGuests = newVal;
+		      numberOfGuests = newVal;
 		      
 		    }
 		   
 
 		  }		  
-		    console.log(newVal);
+		   	
+		    console.log(numberOfGuests);
 		  
 		  $("#GuestsNumber").val(newVal);
 
 		
 
 		});
-<<<<<<< HEAD
-=======
-		
->>>>>>> 60fd0f829060ac611b52017dbcbd41abc443b288
+
+
+
 
 	}
 
 	// should return 
 	this.getNumberOfGuests = function() {
-		//alert('numberofquests func initiated')
-		//var elName = document.getElementById("GuestsNumber");
-		//var num_guests = elName.value;
-		//console.log(num_guests)
-
-		//var num_guests = $('GuestsNumber').val(); - jQuery
+		
+		
 		alert('SELECTdishfunc initiated')
 		
 		console.log(numberOfGuests)
-		numberOfGuests = newVal;
 		return numberOfGuests;
 		
 		
@@ -117,19 +74,22 @@ var DinnerModel = function() {
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
 
-		alert('SELECTdishfunc initiated')
+		alert('SELECTdishfunc initiated');
 
+		var TypeArray = []
 
-		type = starter
-		for (var key in dishes) {
-      	 if (dishes.type == type ){
-          	console.log(data[key].id);
-       }
-    }
+		for (var key = 0; key < menu.length; key++) {
+      	 if (menu[key].type === type){
+      	 	var obj = menu[key]
+      	 	TypeArray.push(obj);
 
-		
+      	 	}
+  
+   		 }
+     	console.log(TypeArray);
+    	return TypeArray;
+}
 
-	}
 
 
 
@@ -141,67 +101,72 @@ var DinnerModel = function() {
 	this.getFullMenu = function() {
 
 
+		MenuArray = []
+
 		for(var i = 0; i < menu.length; i++) {
 		    var obj = menu[i];
 
-		    console.log(obj.name);
-}
-
-
+		    MenuArray.push(obj.name);
+		    //console.log(obj.name);
+		    
+	}
+	console.log(MenuArray)
+	return MenuArray;
 
 		//TODO Lab 2
-	}
+}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
+			
+			IngredientsArray = []
+
 			for(var i = 0; i < menu.length; i++) {
 		    var obj = menu[i];
+		    var DishIngredients = obj.ingredients
 
-		    console.log(obj.ingredients);
+		   IngredientsArray.push(DishIngredients)
 
 
 	}
+
+	console.log(IngredientsArray);
+	return IngredientsArray;
 }
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
 
-		// for(var i = 0; i < menu.length; i++) {
-		//     var obj = menu[i].ingredients.price;
-		    
-		//    totalprice = obj * numberOfGuests;
-		// }
-		//  console.log(totalprice);
-
-
-	// 	$.each(menu, function () {
-	// 		$.each(this.children, function (name, value) {
-
-	// 			console.log(name + "=" + value);
-	// 		});
-
-  		
-	// });
-
+		var sumArr = [] //summation array
 	
-
-			$(menu).each(function(){
-			    var $this = $(this);
-			    $this.children(menu).each(function(){
-			        $this; // parent li
-			        this; // child li
-			        console.log(this)
-			    });
+		$.each(menu, function () { // loop through menu 
+			$.each(this.ingredients, function (name, value) { //and then its child: ingredients
+				multiplied = value.price * numberOfGuests; // multiply by # of guests
+				sumArr.push(multiplied) //add all of the multiplied values to summation array
+							
 			});
 
+		});
 
+		// get the total from the array
+		var total = 0; 
+		for(var i = 0; i < sumArr.length; i++)
+		{
+		    total = total + sumArr[i];
+		}
 
+		console.log(total)
+
+		return total;
+		
 
 }
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
+
+
 
 		
 	}
@@ -357,8 +322,10 @@ var DinnerModel = function() {
 			}]
 		}
 	];
-	
+
 	var numberOfGuests = 10;
+	
+	
 	var dishes = [{
 		'id':1,
 		'name':'French toast',

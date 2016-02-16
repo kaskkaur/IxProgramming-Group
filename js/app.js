@@ -6,7 +6,7 @@ $(function() {
 	var exampleView = new ExampleView($("#exampleView"));
 
 	
-	window.onload = model.getTotalMenuPrice();
+	window.onload = model.setNumberOfGuests();
 
 
 });
