@@ -49,6 +49,7 @@ var DinnerModel = function() {
 		  
 		  $("#GuestsNumber").val(newVal);
 
+
 		
 
 		});
@@ -61,7 +62,7 @@ var DinnerModel = function() {
 	// should return 
 	this.getNumberOfGuests = function() {
 		
-		
+
 		alert('SELECTdishfunc initiated')
 		
 		console.log(numberOfGuests)
@@ -166,15 +167,73 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 
+	
+	
 
+
+
+		for (var j = 0; j < menu.length; j++) {
+			var obj = menu[j]
+			var duplicate = obj.id;
+		
+				if (duplicate === id) {
+					alert("duplicate");
+					menu.splice(obj, 2);
+					
+					break;
+					
+
+				};
+
+			};
+
+
+		for(var i = 0; i < dishes.length; i++) {
+		    var obj = dishes[i];
+		    var DishID = obj.id;
+		 	if (DishID === id) {
+		 		alert("ADD")
+		 		
+		   			menu.push(obj);
+		   			break;
+		   			
+	
+		   		};
+
+		   	};
+
+	
+	console.log(menu);
+}
 
 		
-	}
+	
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
+
+
+		for (var j = 0; j < menu.length; j++) {
+			var obj = menu[j]
+			var remove = obj.id;
+				
+				if (remove === id) {
+					alert("remove");
+					menu.splice(obj, 2);
+					
+					break;
+					
+
+				};
+
+			};
+
+
+			console.log(menu);
 		//TODO Lab 2
 	}
+	
+
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
@@ -217,7 +276,29 @@ var DinnerModel = function() {
 	// can sometimes be empty like in the example of eggs where
 	// you just say "5 eggs" and not "5 pieces of eggs" or anything else.
 	
-
+		// var menu = [{
+		// 'id':101,
+		// 'name':'MD 2',
+		// 'type':'main dish',
+		// 'image':'bakedbrie.jpg',
+		// 'description':"Here is how you make it... Lore ipsum...",
+		// 'ingredients':[{ 
+		// 	'name':'ingredient 1',
+		// 	'quantity':1,
+		// 	'unit':'pieces',
+		// 	'price':8
+		// 	},{
+		// 	'name':'ingredient 2',
+		// 	'quantity':15,
+		// 	'unit':'g',
+		// 	'price':7
+		// 	},{
+		// 	'name':'ingredient 3',
+		// 	'quantity':10,
+		// 	'unit':'ml',
+		// 	'price':4
+		// 	}]
+		// }];
 	var menu = [{
 		'id':101,
 		'name':'MD 2',
@@ -262,64 +343,64 @@ var DinnerModel = function() {
 			'unit':'ml',
 			'price':4
 			}]
-		},{
-		'id':102,
-		'name':'MD 4',
-		'type':'main dish',
-		'image':'meatballs.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
-			'name':'ingredient 1',
-			'quantity':1,
-			'unit':'pieces',
-			'price':4
-			},{
-			'name':'ingredient 2',
-			'quantity':12,
-			'unit':'g',
-			'price':7
-			},{
-			'name':'ingredient 3',
-			'quantity':6,
-			'unit':'ml',
-			'price':4
-			}]
-		},{
-		'id':200,
-		'name':'Chocolat Ice cream',
-		'type':'dessert',
-		'image':'icecream.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
-			'name':'ice cream',
-			'quantity':100,
-			'unit':'ml',
-			'price':6
-			}]
-		},{
-		'id':201,
-		'name':'Vanilla Ice cream',
-		'type':'dessert',
-		'image':'icecream.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
-			'name':'ice cream',
-			'quantity':100,
-			'unit':'ml',
-			'price':6
-			}]
-		},{
-		'id':202,
-		'name':'Strawberry',
-		'type':'dessert',
-		'image':'icecream.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
-			'name':'ice cream',
-			'quantity':100,
-			'unit':'ml',
-			'price':6
-			}]
+		// },{
+		// 'id':102,
+		// 'name':'MD 4',
+		// 'type':'main dish',
+		// 'image':'meatballs.jpg',
+		// 'description':"Here is how you make it... Lore ipsum...",
+		// 'ingredients':[{ 
+		// 	'name':'ingredient 1',
+		// 	'quantity':1,
+		// 	'unit':'pieces',
+		// 	'price':4
+		// 	},{
+		// 	'name':'ingredient 2',
+		// 	'quantity':12,
+		// 	'unit':'g',
+		// 	'price':7
+		// 	},{
+		// 	'name':'ingredient 3',
+		// 	'quantity':6,
+		// 	'unit':'ml',
+		// 	'price':4
+		// 	}]
+		// },{
+		// 'id':200,
+		// 'name':'Chocolat Ice cream',
+		// 'type':'dessert',
+		// 'image':'icecream.jpg',
+		// 'description':"Here is how you make it... Lore ipsum...",
+		// 'ingredients':[{ 
+		// 	'name':'ice cream',
+		// 	'quantity':100,
+		// 	'unit':'ml',
+		// 	'price':6
+		// 	}]
+		// },{
+		// 'id':201,
+		// 'name':'Vanilla Ice cream',
+		// 'type':'dessert',
+		// 'image':'icecream.jpg',
+		// 'description':"Here is how you make it... Lore ipsum...",
+		// 'ingredients':[{ 
+		// 	'name':'ice cream',
+		// 	'quantity':100,
+		// 	'unit':'ml',
+		// 	'price':6
+		// 	}]
+		// },{
+		// 'id':202,
+		// 'name':'Strawberry',
+		// 'type':'dessert',
+		// 'image':'icecream.jpg',
+		// 'description':"Here is how you make it... Lore ipsum...",
+		// 'ingredients':[{ 
+		// 	'name':'ice cream',
+		// 	'quantity':100,
+		// 	'unit':'ml',
+		// 	'price':6
+		// 	}]
 		}
 	];
 
@@ -570,3 +651,4 @@ var DinnerModel = function() {
 	];
 
 }
+
