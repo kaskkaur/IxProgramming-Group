@@ -3,10 +3,15 @@ $(function() {
 	var model = new DinnerModel();
 	
 	//And create the needed controllers and views
+	
+	//var DishesView = new DishesView($("#DishesView"), model);
 	var exampleView = new ExampleView($("#exampleView"), model);
 
 	
-	window.onload = model.getNumberOfGuests(101);
+	
+
+	
+	//window.onload = model.setNumberOfGuests();
 
 
 });

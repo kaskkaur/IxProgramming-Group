@@ -12,8 +12,8 @@
 
   </head>
   <body>
-	<div class="header mainheader">
-		<h1>HOMELETTE  <br>  </h1>
+	<div id="HeaderView" class="header mainheader">
+		<a href="index.html"><h1>HOMELETTE  <br>  </h1></a>
 	</div>
 
 		 <div class="container main"> <!-- start of sidelist-->
@@ -31,7 +31,8 @@
 							<span>
 								<div class="input-group">
 								  <span class="input-group-addon">#</span>
-								  <input value="5" type="text" class="form-control" aria-label="Amount" id="GuestsNumber">
+								  <input  type="text" class="form-control" aria-label="Amount" id="numberOfGuests">
+								
 								  <span class="input-group-addon">People</span>
 								</div>
 							</span>
@@ -45,19 +46,20 @@
 						</div> <!-- end of 1st "my dinner guests" block on the left -->
 
 					<div class="ShoppingList">
-						<table class="table table-hover" style="width:100%" id="SidelistTable">
+						<span id="MenuList"></span>
+						<table class="table table-hover" style="width:100%" id="">
 							  <tr>
 							  	<th> Item </th>
 							  	<th> Price SEK </th>
 							    
 							  </tr>
 							  <tr>
-							    <td>Eve</td>
-							    <td>94</td>
+							    <td id=""></td>
+							    <td></td>
 							  </tr>
 							  <tr>
-							  	<td><a href="dish.html">Meatballs</td>
-							    <td>50</td>
+							  	<td></td>
+							    <td></td>
 							</tr>
 						</table>
 					</div>
@@ -65,9 +67,10 @@
 
 				<div class="total">
 						<div class="input-group">
-							   <span class="input-group-addon TotalColor">Total</span>
-							  <input type="text" class="form-control" aria-label="Amount">
+							   <span id="" class="input-group-addon TotalColor">Total</span>
+							  <input  id="MenuTotal" type="text" class="form-control" aria-label="Amount">
 							   <span class="input-group-addon TotalColor">SEK</span>
+
 						</div>
 
 						<a class="btn-group btn-group-md btn-custom" role="group" id="ConfirmButton" href="dinner_overview.html">
@@ -81,12 +84,12 @@
 
 		</div> <!-- end of sidelist-->
 			    
-			    <div class="col-md-8 selector"> <!-- whole selector area -->
+			    <div id="SelectorView" class="col-md-8 selector"> <!-- whole selector area -->
 			    	<div class="col-md-12 selector-menu"> 
 			    		<h2> <small id="selecttext"> SELECT DISH </h2>
 			    		<hr>
 
-			    		<div class="row"> <!-- selector menu keywords and accordion -->
+			    		<div id="SelectorMenuView" class="row"> <!-- selector menu keywords and accordion -->
 						
 						  <div class="col-lg-6">
 						    <div class="input-group">
@@ -129,8 +132,16 @@
 			            
 			</div> 
 
+
+			<div id="SelectorDishesView">
+				
+			</div>
+
+
+
+
 			
-		<div class="col-lg-3"> <!-- start of dish column -->
+		<!-- <div class="col-lg-3"> 
 			<div class="panel panel-warning anim">
 	  			<div class="panel-heading">Meatballs
 
@@ -145,11 +156,11 @@
 	  				<img src="images/meatballs.jpg"></img>
 
 	  			</div>
-	  			<div class="panel-footer">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	  			<div id ="DishObject" class="panel-footer">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	  			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	  			.</div>
 			</div>
-		</div> <!-- end of dish column -->
+		</div>  -->
 
 		<div class="col-lg-3"> <!-- start of dish column -->
 			<div class="panel panel-warning anim">
@@ -168,7 +179,7 @@
 	  			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	  			.</div>
 			</div>
-		</div> <!-- end of dish column -->
+		</div> 
 
 		<div class="col-lg-3"> <!-- start of dish column -->
 			<div class="panel panel-warning anim">
