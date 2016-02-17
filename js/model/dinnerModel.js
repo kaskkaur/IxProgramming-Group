@@ -162,7 +162,7 @@ var DinnerModel = function() {
 
 		return total;
 		
-
+//jdbaiwhdö
 }
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
