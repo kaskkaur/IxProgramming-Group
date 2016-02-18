@@ -33,16 +33,17 @@ var MenuListView= function (container, model) {
 	
 
 	for (var i = 0; i < MenuViewData.length; i++) {
-		console.log(MenuArray[i].name);
+		console.log(MenuViewData[i].name);
 
 
 		MenuViewString +=  "<div class=\"ShoppingList\">" +
 						"<span id=\"MenuList\"> </span>" +
-						"<table class=\"table table-hover\" style=\"width:100%\" >" +
-							  "<tr> " + "<th>"+ "Item " + "</th>"+" <th>" +" Price SEK" +" </th>"+ " </tr>" +
-							 " <tr> " +"<td> " + MenuViewData[i].name + "</td> "+ MenuViewData[i].type +"<td>" + "</td> " + "</tr>" +
-							 
-						"</table>" +
+						"<div>"+
+							 " <tr>" +
+								"<td>"  + MenuViewData.name + "</td>" +
+								"<td>" + MenuViewData[i].type +  "</td>" +
+								"</tr>" +
+						
 	"</div>" 
 	};
 
