@@ -1,14 +1,7 @@
 //ExampleView Object constructor
 var DishSelectorView = function (container, model) {
 	
-	// Get all the relevant elements of the view (ones that show data
-  	// and/or ones that responed to interaction)
-	this.numberOfGuests = container.find("#numberOfGuests");
-	this.plusButton = container.find("#plusGuest");
-	this.minusButton = container.find("#minusGuest");
-	this.MenuTotal = container.find("#MenuTotal");
-	this.MenuList = container.find("#MenuList");
-	this.DishObject = container.find("#DishObject")
+	
 	
 	
 	
@@ -21,9 +14,6 @@ var DishSelectorView = function (container, model) {
 	
 	
 
-	this.SelectorContainer = container.find("#SelectorContainer");
-	this.SelectorFilterView = container.find("#SelectorFilter");
-	this.SelectorDishesView = container.find("#SelectorDishes");
 	
 	var SelectorDishesString = "";
 	var SelectorContainerString ="";

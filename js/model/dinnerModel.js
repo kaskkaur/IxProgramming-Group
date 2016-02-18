@@ -106,8 +106,16 @@ var DinnerModel = function() {
 
 		for(var i = 0; i < menu.length; i++) {
 		    var obj = menu[i];
-
+         
 		    MenuArray.push(obj);
+		   		    //console.log(obj)
+		 
+
+
+	
+	  //return menu;
+
+		    //MenuArray.push(obj);
 		    //console.log(obj.name);
 		    
 	}
@@ -116,7 +124,12 @@ var DinnerModel = function() {
 
 		//TODO Lab 2
 }
-
+//console.log(obj.name)
+ //return obj.name;
+	    
+    //return obj.name;
+		    
+	
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
 			
@@ -367,7 +380,11 @@ this.getItemOnMenuTotalPrice = function() {
 			'price':4
 			}]
 		},{
+<<<<<<< HEAD
 		'id':102,
+=======
+		'id':103,
+>>>>>>> 85cd271353354d2723c579a29b2119cbac3c62ed
 		'name':'MD 4',
 		'type':'main dish',
 		'image':'meatballs.jpg',

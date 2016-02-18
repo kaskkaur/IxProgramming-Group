@@ -1,26 +1,15 @@
 //ExampleView Object constructor
-var ExampleView = function (container, model) {
+var MenuListView= function (container, model) {
 	
 	// Get all the relevant elements of the view (ones that show data
   	// and/or ones that responed to interaction)
 	this.numberOfGuests = container.find("#numberOfGuests");
 	this.plusButton = container.find("#plusGuest");
 	this.minusButton = container.find("#minusGuest");
-
-
-    this.MenuTotal = container.find("#MenuTotal");
-
-  
-	
-	this.numberOfGuests.html(model.getNumberOfGuests());
-    //this.MenuTotal.html(model.getTotalMenuPrice());
-	
-
 	this.MenuTotal = container.find("#MenuTotal");
+	this.DishObject = container.find("#DishObject");
 	this.MenuList = container.find("#MenuList");
-	this.DishObject = container.find("#DishObject")
 	
-
 	
 	
 	
@@ -28,40 +17,41 @@ var ExampleView = function (container, model) {
 	//document.getElementById("MenuTotal").value = model.getTotalMenuPrice();
 	$("#MenuTotal").val(model.getTotalMenuPrice()); 
 
-	
-	
-	// this.MenuList.text(model.getFullMenu()[0].name);
-	// console.log(MenuList);
-	// console.log(model.getFullMenu()[0].name);
-
-	// this.DishObject.html(model.getDish(1).description);
 
 
-
-	//document.getElementById("MenuList").value = model.getFullMenu());
-	//this.MenuList.innerHTML = model.getFullMenu()[0].name;
-	//this.numberOfGuests.html(model.getNumberOfGuests());
-	//this.setNumberOfGuests.html(model.setNumberOfGuests());
-	
-//}
-
-
-//var DishesView = function (container, model) {
-
-	this.SelectorView = container.find("#SelectorView");
-	this.SelectorMenuView = container.find("#SelectorMenuView");
-	this.SelectorDishesView = container.find("#SelectorDishesView");
+	this.SelectorView = container.find("#SelectorContainer");
+	this.SelectorMenuListView = container.find("#MenuViewListing");
+	this.SelectorDishesView = container.find("#SelectorDishes");
 	
 	var FoodDetailString = "";
+	var SelectorViewString ="";
+	var MenuViewString ="";
+	var MenuViewData=model.getFullMenu();
+	//console.log(SelectorMenu);
 	var FoodList = model.getAllDishes("starter");
-	console.log(SelectorDishesView);
+	//console.log(SelectorDishes);
 	
 
-	for (var i = 0; i < FoodList.length; i++) {
-		console.log(FoodList[i].name);
+	for (var i = 0; i < MenuViewData.length; i++) {
+		console.log(MenuArray[i].name);
 
 
-		FoodDetailString += "<div class=\"col-lg-3\">" +
+		MenuViewString +=  "<div class=\"ShoppingList\">" +
+						"<span id=\"MenuList\"> </span>" +
+						"<table class=\"table table-hover\" style=\"width:100%\" >" +
+							  "<tr> " + "<th>"+ "Item " + "</th>"+" <th>" +" Price SEK" +" </th>"+ " </tr>" +
+							 " <tr> " +"<td> " + MenuViewData[i].name + "</td> "+ MenuViewData[i].type +"<td>" + "</td> " + "</tr>" +
+							 
+						"</table>" +
+	"</div>" 
+	};
+
+		
+		
+		
+		
+		
+		/*"<div class=\"col-lg-3\">" +
 			"<div class=\"panel panel-warning anim\">" +
 	  			"<div class=\"panel-heading\">" +   FoodList[i].name +
 
@@ -84,10 +74,14 @@ var ExampleView = function (container, model) {
 
 
 	};
+*/
 
-
-	$("#SelectorDishesView").html(FoodDetailString);
+	$("#SelectorDishes").html(FoodDetailString);
+		$("#SelectorMenu").html(MenuViewString);
+	
+	
 	console.log(FoodDetailString);
+	console.log(MenuViewString);
 
 
 
