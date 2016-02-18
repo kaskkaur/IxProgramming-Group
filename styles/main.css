@@ -446,3 +446,8 @@ mainheader a h1:hover {
      text-decoration:none; 
      cursor:pointer;  
 }
+
+.table {
+
+  overflow: auto;
+}

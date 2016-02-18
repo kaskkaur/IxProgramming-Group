@@ -107,7 +107,7 @@ var DinnerModel = function() {
 		for(var i = 0; i < menu.length; i++) {
 		    var obj = menu[i];
          
-		    MenuArray.push(obj.name);
+		    MenuArray.push(obj);
 		   		    //console.log(obj)
 		 
 
@@ -175,7 +175,28 @@ var DinnerModel = function() {
 
 		return total;
 		
-//jdbaiwhdö
+
+}
+
+
+this.getItemOnMenuTotalPrice = function() {
+
+	
+		$.each(menu, function () { // loop through menu 
+			$.each(this.ingredients, function (name, value) { //and then its child: ingredients
+				price = value.price;
+
+							
+			});
+
+		});
+
+		
+
+		return price;
+		console.log(price);
+		
+
 }
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
@@ -359,6 +380,7 @@ var DinnerModel = function() {
 			'price':4
 			}]
 		},{
+		
 		'id':103,
 		'name':'MD 4',
 		'type':'main dish',
