@@ -29,12 +29,7 @@ var DishSelectorView = function (container, model) {
 
 	"<div id=\"SelectorFilter\"></div>" + "<div id=\"SelectorDishes\"></div>" +
 
-		
-
-			
-
-			
-			    	
+	    	
 
 
 	"</div> <!-- selector area END -->" 
