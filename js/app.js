@@ -6,7 +6,7 @@ $(function() {
 	var exampleView = new ExampleView($("#exampleView"), model);
 
 	
-	window.onload = model.getNumberOfGuests(101);
+	window.onload = model.getNumberOfGuests();
 
 
 });
