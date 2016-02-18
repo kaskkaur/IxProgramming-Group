@@ -14,16 +14,16 @@ var DinnerModel = function() {
 
 
 
-		$(".button-increment").on("click", function() {
+		$(".button-increment").on("click", function() { // + - are part of the increment class
 
 
 		  
 		  var $button = $(this);
-		  var oldValue = numberOfGuests;
+		  var oldValue = numberOfGuests; // declare oldvalue to be the numberofguests, which sits in the model
 
 		  if ($button.is("#plusGuest")) {
 			  var newVal = oldValue + 1;
-			  numberOfGuests = newVal;
+			  numberOfGuests = newVal; // update the number of guests variable in the model
 			  
 			  
 			} else {
@@ -63,7 +63,7 @@ var DinnerModel = function() {
 	this.getNumberOfGuests = function() {
 		
 
-		alert('SELECTdishfunc initiated')
+		alert('GETNumOfGuests initiated')
 		
 		console.log(numberOfGuests)
 		return numberOfGuests;
@@ -77,12 +77,12 @@ var DinnerModel = function() {
 
 		alert('SELECTdishfunc initiated');
 
-		var TypeArray = []
+		var TypeArray = [] // we create an empty array to store the specific type dishes
 
 		for (var key = 0; key < menu.length; key++) {
-      	 if (menu[key].type === type){
+      	 if (menu[key].type === type){ // check if type matches
       	 	var obj = menu[key]
-      	 	TypeArray.push(obj);
+      	 	TypeArray.push(obj); // place to array
 
       	 	}
   
@@ -102,17 +102,25 @@ var DinnerModel = function() {
 	this.getFullMenu = function() {
 
 
-		//MenuArray = []
+		MenuArray = []
 
 		for(var i = 0; i < menu.length; i++) {
 		    var obj = menu[i];
          
-		   // MenuArray.push(obj.name);
-		   		    console.log(obj)
+		    MenuArray.push(obj.name);
+		   		    //console.log(obj)
 		 
+
 
 	
 	  //return menu;
+
+		    //MenuArray.push(obj);
+		    //console.log(obj.name);
+		    
+	}
+	console.log(MenuArray)
+	return MenuArray;
 
 		//TODO Lab 2
 }
@@ -121,7 +129,7 @@ var DinnerModel = function() {
 	    
     //return obj.name;
 		    
-	}
+	
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
 			
@@ -142,6 +150,8 @@ var DinnerModel = function() {
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
+
+		alert("totalmenuprice")
 
 		var sumArr = [] //summation array
 	
@@ -349,7 +359,7 @@ var DinnerModel = function() {
 			'price':4
 			}]
 		},{
-		'id':102,
+		'id':103,
 		'name':'MD 4',
 		'type':'main dish',
 		'image':'meatballs.jpg',
@@ -409,7 +419,7 @@ var DinnerModel = function() {
 		}
 	];
 
-	var numberOfGuests = 10;
+	var numberOfGuests = 22;
 	
 	
 	var dishes = [{

@@ -1,26 +1,15 @@
 //ExampleView Object constructor
-var ExampleView = function (container, model) {
+var DishSelectorView = function (container, model) {
 	
 	// Get all the relevant elements of the view (ones that show data
   	// and/or ones that responed to interaction)
 	this.numberOfGuests = container.find("#numberOfGuests");
 	this.plusButton = container.find("#plusGuest");
 	this.minusButton = container.find("#minusGuest");
-
-
-    this.MenuTotal = container.find("#MenuTotal");
-
-  
-	
-	this.numberOfGuests.html(model.getNumberOfGuests());
-    //this.MenuTotal.html(model.getTotalMenuPrice());
-	
-
 	this.MenuTotal = container.find("#MenuTotal");
 	this.MenuList = container.find("#MenuList");
 	this.DishObject = container.find("#DishObject")
 	
-
 	
 	
 	
@@ -48,13 +37,15 @@ var ExampleView = function (container, model) {
 
 //var DishesView = function (container, model) {
 
-	this.SelectorView = container.find("#SelectorView");
-	this.SelectorMenuView = container.find("#SelectorMenuView");
-	this.SelectorDishesView = container.find("#SelectorDishesView");
+	this.SelectorView = container.find("#SelectorContainer");
+	this.SelectorMenuView = container.find("#SelectorFilter");
+	this.SelectorDishesView = container.find("#SelectorDishes");
 	
 	var FoodDetailString = "";
+	var SelectorViewString ="";
+	var SelectorFilterView ="";
 	var FoodList = model.getAllDishes("starter");
-	console.log(SelectorDishesView);
+	console.log(SelectorDishes);
 	
 
 	for (var i = 0; i < FoodList.length; i++) {
@@ -86,7 +77,7 @@ var ExampleView = function (container, model) {
 	};
 
 
-	$("#SelectorDishesView").html(FoodDetailString);
+	$("#SelectorDishes").html(FoodDetailString);
 	console.log(FoodDetailString);
 
 

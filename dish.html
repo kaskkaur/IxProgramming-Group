@@ -39,20 +39,25 @@
 						</div> <!-- end of 1st "my dinner guests" block on the left -->
 
 					<div class="ShoppingList">
-						<table class="table table-hover" style="width:100%" id="SidelistTable">
+						<span id="MenuList"></span>
+						<table class="table table-hover" style="width:100%" id="">
 							  <tr>
 							  	<th> Item </th>
 							  	<th> Price SEK </th>
 							    
 							  </tr>
 							  <tr>
-							    <td>Eve</td>
-							    <td>94</td>
+							    <td></td>
+							    <td></td>
 							  </tr>
 							  <tr>
-							  	<td>Fish</td>
-							    <td>50</td>
+							  	<td></td>
+							    <td></td>
 							</tr>
+						</table>
+					</div>
+
+
 								<!-- <th>  </th>
 							  	<th> Total SEK</th>
 							  <tr>
@@ -68,7 +73,7 @@
 				<div class="total">
 						<div class="input-group">
 							   <span class="input-group-addon TotalColor ">Total</span>
-							  <input type="text" class="form-control" aria-label="Amount">
+							  <input id="MenuTotal" type="text" class="form-control" aria-label="Amount">
 							   <span class="input-group-addon TotalColor ">SEK</span>
 						</div>
 
@@ -96,8 +101,7 @@
 			    			</div>
 
 
-
-			    			<div class="col-lg-6">
+			<div class="col-lg-6">
 
 			    				
 			    				<span class="input-group">  	
@@ -201,6 +205,9 @@
 			</div> <!-- selector menu keywords and accordion END -->
 
 
+			<div id="SelectorMenu">
+				
+			</div>
 
 		</div> <!-- selector area END -->
 
@@ -220,6 +227,7 @@
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
 	<script src="js/view/exampleView.js"></script>
+    <script src="js/view/MenuListView.js"></script>
 	<script src="js/view/exampleViewController.js"></script>
   </body>
 </html>
