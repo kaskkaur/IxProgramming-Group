@@ -380,11 +380,8 @@ this.getItemOnMenuTotalPrice = function() {
 			'price':4
 			}]
 		},{
-<<<<<<< HEAD
-		'id':102,
-=======
+		
 		'id':103,
->>>>>>> 85cd271353354d2723c579a29b2119cbac3c62ed
 		'name':'MD 4',
 		'type':'main dish',
 		'image':'meatballs.jpg',
