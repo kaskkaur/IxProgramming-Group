@@ -162,7 +162,28 @@ var DinnerModel = function() {
 
 		return total;
 		
-//jdbaiwhdö
+
+}
+
+
+this.getItemOnMenuTotalPrice = function() {
+
+	
+		$.each(menu, function () { // loop through menu 
+			$.each(this.ingredients, function (name, value) { //and then its child: ingredients
+				price = value.price;
+
+							
+			});
+
+		});
+
+		
+
+		return price;
+		console.log(price);
+		
+
 }
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
@@ -345,64 +366,64 @@ var DinnerModel = function() {
 			'unit':'ml',
 			'price':4
 			}]
-		// },{
-		// 'id':102,
-		// 'name':'MD 4',
-		// 'type':'main dish',
-		// 'image':'meatballs.jpg',
-		// 'description':"Here is how you make it... Lore ipsum...",
-		// 'ingredients':[{ 
-		// 	'name':'ingredient 1',
-		// 	'quantity':1,
-		// 	'unit':'pieces',
-		// 	'price':4
-		// 	},{
-		// 	'name':'ingredient 2',
-		// 	'quantity':12,
-		// 	'unit':'g',
-		// 	'price':7
-		// 	},{
-		// 	'name':'ingredient 3',
-		// 	'quantity':6,
-		// 	'unit':'ml',
-		// 	'price':4
-		// 	}]
-		// },{
-		// 'id':200,
-		// 'name':'Chocolat Ice cream',
-		// 'type':'dessert',
-		// 'image':'icecream.jpg',
-		// 'description':"Here is how you make it... Lore ipsum...",
-		// 'ingredients':[{ 
-		// 	'name':'ice cream',
-		// 	'quantity':100,
-		// 	'unit':'ml',
-		// 	'price':6
-		// 	}]
-		// },{
-		// 'id':201,
-		// 'name':'Vanilla Ice cream',
-		// 'type':'dessert',
-		// 'image':'icecream.jpg',
-		// 'description':"Here is how you make it... Lore ipsum...",
-		// 'ingredients':[{ 
-		// 	'name':'ice cream',
-		// 	'quantity':100,
-		// 	'unit':'ml',
-		// 	'price':6
-		// 	}]
-		// },{
-		// 'id':202,
-		// 'name':'Strawberry',
-		// 'type':'dessert',
-		// 'image':'icecream.jpg',
-		// 'description':"Here is how you make it... Lore ipsum...",
-		// 'ingredients':[{ 
-		// 	'name':'ice cream',
-		// 	'quantity':100,
-		// 	'unit':'ml',
-		// 	'price':6
-		// 	}]
+		},{
+		'id':102,
+		'name':'MD 4',
+		'type':'main dish',
+		'image':'meatballs.jpg',
+		'description':"Here is how you make it... Lore ipsum...",
+		'ingredients':[{ 
+			'name':'ingredient 1',
+			'quantity':1,
+			'unit':'pieces',
+			'price':4
+			},{
+			'name':'ingredient 2',
+			'quantity':12,
+			'unit':'g',
+			'price':7
+			},{
+			'name':'ingredient 3',
+			'quantity':6,
+			'unit':'ml',
+			'price':4
+			}]
+		},{
+		'id':200,
+		'name':'Chocolat Ice cream',
+		'type':'dessert',
+		'image':'icecream.jpg',
+		'description':"Here is how you make it... Lore ipsum...",
+		'ingredients':[{ 
+			'name':'ice cream',
+			'quantity':100,
+			'unit':'ml',
+			'price':6
+			}]
+		},{
+		'id':201,
+		'name':'Vanilla Ice cream',
+		'type':'dessert',
+		'image':'icecream.jpg',
+		'description':"Here is how you make it... Lore ipsum...",
+		'ingredients':[{ 
+			'name':'ice cream',
+			'quantity':100,
+			'unit':'ml',
+			'price':6
+			}]
+		},{
+		'id':202,
+		'name':'Strawberry',
+		'type':'dessert',
+		'image':'icecream.jpg',
+		'description':"Here is how you make it... Lore ipsum...",
+		'ingredients':[{ 
+			'name':'ice cream',
+			'quantity':100,
+			'unit':'ml',
+			'price':6
+			}]
 		}
 	];
 
