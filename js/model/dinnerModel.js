@@ -202,7 +202,7 @@ this.getItemOnMenuTotalPrice = function() {
 					
 
 				} else { 
-					alert("ELSE")
+					
 
 					multiplied = value.price * numberOfGuests;
 					total += multiplied

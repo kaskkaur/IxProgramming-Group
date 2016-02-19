@@ -27,6 +27,7 @@ var DinnerOverView = function (container, model) {
 
 
 	SelectorContainerString1 += "<div id=\"\" class=\"col-md-8 selector\"> <!-- whole selector area -->" + 
+	"<div id=\"ViewerDishes\"></div>" +
 
 	
 
