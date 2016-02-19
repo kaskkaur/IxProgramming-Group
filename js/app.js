@@ -9,8 +9,9 @@ $(function() {
 	//$("StartButton").onclick {
 
 
-	var dishSelectorView = new DishSelectorView($("#dishSelectorView"), model);
-	var sideBarView = new SideBarView($("#sideBarView"), model);
+	//var dishSelectorView = new DishSelectorView($("#dishSelectorView"), model);
+	//var sideBarView = new SideBarView($("#sideBarView"), model);
+	var dinnerOverview = new DinnerOverView($("#dinnerOverview"), model);
 
 	//var dishSelectorView = new DishSelectorView($("#dishSelectorView"), model);
 
