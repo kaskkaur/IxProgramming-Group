@@ -190,12 +190,12 @@ this.getItemOnMenuTotalPrice = function() {
 		$.each(menu, function (index, name) { // loop through menu 
 			var self = this;
 			DishIndex = parseFloat(index);
-			compare = DishIndex + 1;
+			
 						
 			$.each(this.ingredients, function (name, value) { //and then its child: ingredients
 				 
 				console.log(DishIndex);
-				if (DishIndex === compare) {
+				if (DishIndex === DishIndex + 1) {
 					alert("IF")
 					
 					sumArr.push(total)
