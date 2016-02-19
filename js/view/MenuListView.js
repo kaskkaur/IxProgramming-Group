@@ -40,7 +40,7 @@ var MenuListView= function (container, model) {
 						"<span id=\"MenuList\"> </span>" +
 						"<div>"+
 							 " <tr>" +
-								"<td>"  + MenuViewData.name + "</td>" +
+								"<td>"  + MenuViewData[i].name + "</td>" +
 								"<td>" + MenuViewData[i].type +  "</td>" +
 								"</tr>" +
 						
