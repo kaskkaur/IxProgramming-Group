@@ -27,7 +27,9 @@ var DinnerOverView = function (container, model) {
 
 
 	SelectorContainerString1 += "<div id=\"\" class=\"col-md-8 selector\"> <!-- whole selector area -->" + 
-	"<div id=\"ViewerDishes\"></div>" +
+
+	
+
 
 	
 
@@ -71,7 +73,7 @@ var DinnerOverView = function (container, model) {
 
 
 	$("#SelectorContainer1").html(SelectorContainerString1);
-	$("#ViewerDishes").html(ViewerDishesString);
+	//$("#ViewerDishes").html(ViewerDishesString);
 	
 	//$("#SelectorDishes").html(SelectorDishesString);
 
@@ -82,7 +84,7 @@ var DinnerOverView = function (container, model) {
 
 	console.log(SelectorContainerString1);
 	//console.log(SelectorFilterString);
-	console.log(ViewerDishesString);
+	//console.log(ViewerDishesString);
 
 	
 	
