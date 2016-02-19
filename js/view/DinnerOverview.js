@@ -30,6 +30,9 @@ var DinnerOverView = function (container, model) {
 
 	
 
+
+	
+
 	"</div> <!-- selector area END -->" 
 
 	
@@ -70,7 +73,7 @@ var DinnerOverView = function (container, model) {
 
 
 	$("#SelectorContainer1").html(SelectorContainerString1);
-	$("#ViewerDishes").html(ViewerDishesString);
+	//$("#ViewerDishes").html(ViewerDishesString);
 	
 	//$("#SelectorDishes").html(SelectorDishesString);
 
@@ -81,7 +84,7 @@ var DinnerOverView = function (container, model) {
 
 	console.log(SelectorContainerString1);
 	//console.log(SelectorFilterString);
-	console.log(ViewerDishesString);
+	//console.log(ViewerDishesString);
 
 	
 	
