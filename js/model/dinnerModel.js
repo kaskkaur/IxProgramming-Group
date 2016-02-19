@@ -158,6 +158,7 @@ var DinnerModel = function() {
 		$.each(menu, function () { // loop through menu 
 			$.each(this.ingredients, function (name, value) { //and then its child: ingredients
 				multiplied = value.price * numberOfGuests; // multiply by # of guests
+				
 				sumArr.push(multiplied) //add all of the multiplied values to summation array
 							
 			});
@@ -182,20 +183,41 @@ var DinnerModel = function() {
 this.getItemOnMenuTotalPrice = function() {
 
 	
-		$.each(menu, function () { // loop through menu 
+	
+		var sumArr = [] //summation array
+		var total = 0;
+	
+		$.each(menu, function (index, name) { // loop through menu 
+			var self = this;
+			DishIndex = parseFloat(index);
+			compare = DishIndex + 1;
+						
 			$.each(this.ingredients, function (name, value) { //and then its child: ingredients
-				price = value.price;
+				 
+				console.log(DishIndex);
+				if (DishIndex === compare) {
+					alert("IF")
+					
+					sumArr.push(total)
+					
+
+				} else { 
+					alert("ELSE")
+
+					multiplied = value.price * numberOfGuests;
+					total += multiplied
+					
+				 }
 
 							
 			});
 
 		});
-
 		
 
-		return price;
-		console.log(price);
-		
+		console.log(sumArr)
+
+		return sumArr;
 
 }
 
@@ -441,7 +463,7 @@ this.getItemOnMenuTotalPrice = function() {
 		}
 	];
 
-	var numberOfGuests = 22;
+	var numberOfGuests = 4;
 	
 	
 	var dishes = [{
