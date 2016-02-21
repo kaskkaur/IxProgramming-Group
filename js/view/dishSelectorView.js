@@ -11,17 +11,12 @@ var DishSelectorView = function (container, model) {
 	$("#MenuTotal").val(model.getTotalMenuPrice()); 
 
 	
-	
-	
-
-	
+		
 	var SelectorDishesString = "";
 	var SelectorContainerString ="";
 	var SelectorFilterString ="";
 	var FoodList = model.getAllDishes("starter");
 	//console.log(SelectorDishes);
-	
-
 	
 
 
