@@ -8,10 +8,11 @@ $(function() {
 	//var exampleView = new ExampleView($("#exampleView"), model);
 	//$("StartButton").onclick {
 
-
+	//var dinnerPreperationView= new DinnerPreperationView($("#dinnerPreperationView"), model);
 	var dishSelectorView = new DishSelectorView($("#dishSelectorView"), model);
 	var sideBarView = new SideBarView($("#sideBarView"), model);
-	var dinnerOverview = new DinnerOverView($("#dinnerOverview"), model);
+	var dinnerOverview = new DinnerOverview($("#dinnerOverview"), model);
+
 
 	//var dishSelectorView = new DishSelectorView($("#dishSelectorView"), model);
 
