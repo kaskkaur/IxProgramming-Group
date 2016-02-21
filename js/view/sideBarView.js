@@ -10,7 +10,7 @@ var SideBarView = function (container, model) {
 	var FullMenu = model.getFullMenu();
 	var MenuTotal = model.getTotalMenuPrice();
 	var numberOfGuests = model.getNumberOfGuests();
-	var ItemPrice = model.getItemOnMenuTotalPrice();
+	//var ItemPrice = model.getTotalDishPrice();
 	
 	
 	
@@ -18,11 +18,13 @@ var SideBarView = function (container, model) {
 	
 	$.each(FullMenu, function (name, value) { 
 		var self = this;
+		id = value.id;
+		console.log(id);
 		
 
 				SideBarItemsString +=	"<tr>" +
 								"<td>"  + self.name + "</td>" +
-								"<td>" + "sap" +  "</td>" +
+								"<td>" + model.getTotalDishPrice(id); +  "</td>" +
 								"</tr>"
 
 	

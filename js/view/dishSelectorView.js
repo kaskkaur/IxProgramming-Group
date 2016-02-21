@@ -6,9 +6,7 @@ var DishSelectorView = function (container, model) {
 	
 	
 	
-	$("#numberOfGuests").val(model.getNumberOfGuests()); 
-
-	$("#MenuTotal").val(model.getTotalMenuPrice()); 
+	
 
 	
 		
@@ -104,6 +102,10 @@ var DishSelectorView = function (container, model) {
 	$("#SelectorFilter").html(SelectorFilterString);
 	
 	$("#SelectorDishes").html(SelectorDishesString);
+
+	$("#numberOfGuests").val(model.getNumberOfGuests()); 
+
+	$("#MenuTotal").val(model.getTotalMenuPrice()); 
 
 	//document.getElementById("SelectorContainer").innerHTML = SelectorContainerString;
 	//document.getElementById("SelectorFilter").innerHTML = SelectorFilterString;

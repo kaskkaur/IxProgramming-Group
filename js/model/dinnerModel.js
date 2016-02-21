@@ -180,46 +180,53 @@ var DinnerModel = function() {
 }
 
 
-this.getItemOnMenuTotalPrice = function() {
+this.getTotalDishPrice = function(id) {
 
 	
-	
+
 		var sumArr = [] //summation array
-		var total = 0;
+
 	
-		$.each(menu, function (index, name) { // loop through menu 
-			var self = this;
-			DishIndex = parseFloat(index);
-			
-						
-			$.each(this.ingredients, function (name, value) { //and then its child: ingredients
-				 
-				console.log(DishIndex);
-				if (DishIndex === DishIndex + 1) {
-					alert("IF")
-					
-					sumArr.push(total)
-					
 
-				} else { 
-					
 
-					multiplied = value.price * numberOfGuests;
-					total += multiplied
-					
-				 }
+	for(key in dishes){
+			if(dishes[key].id == id) {
+				
 
+
+		
+			$.each(dishes[key].ingredients, function (name, value) { //and then its child: ingredients
+				multiplied = value.price * numberOfGuests; // multiply by # of guests
+				
+				sumArr.push(multiplied) //add all of the multiplied values to summation array
 							
-			});
+					});
 
-		});
+			}
+		}
+	
 		
 
-		console.log(sumArr)
 
-		return sumArr;
+		// get the total from the array
+		var total = 0; 
+		for(var i = 0; i < sumArr.length; i++)
+		{
+		    total = total + sumArr[i];
+		}
+
+		console.log(total)
+
+		return total;
+		
 
 }
+
+
+
+
+
+
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
@@ -400,41 +407,6 @@ this.getItemOnMenuTotalPrice = function() {
 			'quantity':5,
 			'unit':'ml',
 			'price':4
-			}]
-		},{
-		
-		'id':103,
-		'name':'MD 4',
-		'type':'main dish',
-		'image':'meatballs.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
-			'name':'ingredient 1',
-			'quantity':1,
-			'unit':'pieces',
-			'price':4
-			},{
-			'name':'ingredient 2',
-			'quantity':12,
-			'unit':'g',
-			'price':7
-			},{
-			'name':'ingredient 3',
-			'quantity':6,
-			'unit':'ml',
-			'price':4
-			}]
-		},{
-		'id':200,
-		'name':'Chocolat Ice cream',
-		'type':'dessert',
-		'image':'icecream.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
-			'name':'ice cream',
-			'quantity':100,
-			'unit':'ml',
-			'price':6
 			}]
 		},{
 		'id':201,
