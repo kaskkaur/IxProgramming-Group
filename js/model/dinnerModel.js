@@ -63,7 +63,7 @@ var DinnerModel = function() {
 	this.getNumberOfGuests = function() {
 		
 
-		alert('GETNumOfGuests initiated')
+		// alert('GETNumOfGuests initiated')
 		
 		console.log(numberOfGuests)
 		return numberOfGuests;
@@ -75,7 +75,7 @@ var DinnerModel = function() {
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
 
-		alert('SELECTdishfunc initiated');
+		// alert('SELECTdishfunc initiated');
 
 		var TypeArray = [] // we create an empty array to store the specific type dishes
 
@@ -151,7 +151,7 @@ var DinnerModel = function() {
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
 
-		alert("totalmenuprice")
+		// alert("totalmenuprice")
 
 		var sumArr = [] //summation array
 	

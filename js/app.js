@@ -8,16 +8,19 @@ $(function() {
 	//var exampleView = new ExampleView($("#exampleView"), model);
 	//$("StartButton").onclick {
 
-	//var dinnerPreperationView= new DinnerPreperationView($("#dinnerPreperationView"), model);
+	var dinnerPreparationView = new DinnerPreparationView($("#dinnerPreparationView"), model);
 	var dishSelectorView = new DishSelectorView($("#dishSelectorView"), model);
+	
 	var sideBarView = new SideBarView($("#sideBarView"), model);
-<<<<<<< HEAD
-	var dinnerOverview = new DinnerOverView($("#dinnerOverview"), model);
-	var dishView = new DishView($("#dishView"), model);
-=======
+
 	var dinnerOverview = new DinnerOverview($("#dinnerOverview"), model);
 
->>>>>>> 33a6f983b13463e93d27f56edff7c9fde375da22
+	var dishView = new DishView($("#dishView"), model);
+
+
+
+
+
 
 	//var dishSelectorView = new DishSelectorView($("#dishSelectorView"), model);
 

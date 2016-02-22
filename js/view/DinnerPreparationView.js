@@ -1,37 +1,26 @@
 //ExampleView Object constructor
-var DinnerPreperationView = function (container, model) {
+var DinnerPreparationView = function (container, model) {
 	
 	
 	
-	
-	
-	
-	$("#numberOfGuests").val(model.getNumberOfGuests()); 
-
-	$("#MenuTotal").val(model.getTotalMenuPrice()); 
-
-	
-	
-	
-
-	
-	var DinnerPrepString = "";
-	var SelectorContainerString2 ="";
-	//var SelectorFilterString ="";
 	var DinnerPrepList = model.getFullMenu();
-	var DinnerHeadString="";
-	//var ConfirmDinnerString="";
 	
-	//console.log(SelectorDishes);
+	
+	
+	var PreparationHeadString = "";
+	var PreparationViewContainerString ="";
+	
+	var PreparationItemsString = "";
+
 	
 	
 
-	
 
+	PreparationViewContainerString += "<div id=\"\" class=\"col-md-8 selector\"> <!-- whole selector area -->" + 
 
-	SelectorContainerString2 += "<div id=\"\" class=\"col-md-8 selector\"> <!-- whole selector area -->" + "<div id=\"DinnerHead2\"></div>"+
+	"<div id=\"PreparationHead\"></div>" +
 
-	"<div id=\"DinnerPrep\"></div>" + 
+	"<div id=\"PreparationItems\"></div>" + 
 
 
 	
@@ -40,7 +29,7 @@ var DinnerPreperationView = function (container, model) {
 
 	
 
-     DinnerHeadString += "<div class=\"col-md-12 selector-menu \">"+ 
+     PreparationHeadString += "<div class=\"col-md-12 selector-menu \">"+ 
 			    		 
 			    			"<div class=\"col-md-4\"> "+
 
@@ -87,7 +76,7 @@ var DinnerPreperationView = function (container, model) {
 
 
 
-		DinnerPrepString +=  "<div class=\"preparation\"> "+
+		PreparationItemsString +=  "<div class=\"preparation\"> "+
 						  "<div class=\"row \"> "+
 							
 							" <div class=\"col-lg-3\">"+
@@ -105,13 +94,15 @@ var DinnerPreperationView = function (container, model) {
 								"<div class=\"col-lg-3\">"+
 
 									"<div class=\"preparation-image\">"+
-									"<h3>"+ DinnerPrepList[i].name+" </h3>" +DinnerPrepList[i].description
+									"<h3>"+ DinnerPrepList[i].name + "</h3>" + DinnerPrepList[i].description +
 
 									
-								+"</div>"+
+								"</div>" +
 
 	
-								"</div>"+ "</div>"
+								"</div>" + 
+
+								"</div>"
 
 
 
@@ -122,22 +113,18 @@ var DinnerPreperationView = function (container, model) {
 
 
 
-	$("#SelectorContainer2").html(SelectorContainerString2);
-	$("#DinnerPrep").html(DinnerPrepString);
-	$("#DinnerHead2").html(DinnerHeadString1);
+	$("#PreparationViewContainer").html(PreparationViewContainerString);
+	
+	$("#PreparationHead").html(PreparationHeadString);
+
+	$("#PreparationItems").html(PreparationItemsString);
+
+
+
+	$("#numberOfGuests").val(model.getNumberOfGuests()); 
+
+	$("#MenuTotal").val(model.getTotalMenuPrice()); 
     
-	//$("#SelectorDishes").html(SelectorDishesString);
-
-	//document.getElementById("SelectorContainer").innerHTML = SelectorContainerString;
-	//document.getElementById("SelectorFilter").innerHTML = SelectorFilterString;
-	//document.getElementById("SelectorDishes").innerHTML = SelectorDishesString;
-	
-
-	//console.log(SelectorContainerString1);
-	//console.log(ViewerDishesString);
-	//console.log(ViewerDishesString);
-
-	
 	
 
 
