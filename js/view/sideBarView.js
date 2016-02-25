@@ -1,6 +1,7 @@
 var SideBarView = function (container, model) {
 
-
+	
+	model.addObserver(this);
 
 
 
@@ -10,12 +11,17 @@ var SideBarView = function (container, model) {
 	var FullMenu = model.getFullMenu();
 	var MenuTotal = model.getTotalMenuPrice();
 	var numberOfGuests = model.getNumberOfGuests();
+
+
+
 	//var ItemPrice = model.getTotalDishPrice();
 	
 	
 	
 
+	 var DishLooper = function() {
 	
+
 	$.each(FullMenu, function (name, value) { 
 		var self = this;
 		id = value.id;
@@ -23,14 +29,24 @@ var SideBarView = function (container, model) {
 		
 
 				SideBarItemsString +=	"<tr>" +
+								"<td>" + "<a class=\"btn btn-default btn-group-xs glyphicon glyphicon-remove\" href=\"#\" id=\"" + "RemoveDish" + id + "\"></a>" + "</td>" +
 								"<td>"  + self.name + "</td>" +
 								"<td>" + model.getTotalDishPrice(id); +  "</td>" +
+
+
 								"</tr>"
 
 	
 		
 	});
 
+
+
+
+
+  }
+
+  DishLooper();
 
 
 	SideBarString +=
@@ -82,7 +98,7 @@ var SideBarView = function (container, model) {
 
 						"</div>" +
 
-						"<a class=\"btn-group btn-group-md btn-custom\" role=\"group\" id=\"ConfirmButton\" href=\"dinner_overview.html\">" +
+						"<a class=\"btn-group btn-group-md btn-custom\" role=\"group\" id=\"ConfirmButton\" href=\"\">" +
 						"<type=\"button\" class=\"btn btn-default btn-custom\"> Confirm dinner </button>" +
 				
 						"</a>" +
@@ -95,13 +111,51 @@ var SideBarView = function (container, model) {
 
 		"<!-- end of sidelist-->"
 
-		console.log(SideBarString);
-		console.log(SideBarItemsString);
+
+
+		
+
+		this.update = function(arg) {
+
+			console.log(arg);
+
+
+			if (arg === "guests") {
+				console.log(model.getNumberOfGuests())
+
+
+				
+
+				$("#numberOfGuests").val(model.getNumberOfGuests());
+				$("#MenuTotal").val(model.getTotalMenuPrice());
+				
+				SideBarItemsString = [];
+				DishLooper();
+				$("#SideBarItems").html(SideBarItemsString);
+
+
+
+			}
+
+
+		}
+
+
+		console.log(numberOfGuests);
+		
+
+
+
+	
 		$("#SideBar").html(SideBarString);
 		$("#SideBarItems").html(SideBarItemsString);
-		$("#numberOfGuests").val(numberOfGuests);
 		$("#MenuTotal").val(MenuTotal);
-
+		
+		
+		this.minusGuest = $("#minusGuest");
+		this.plusGuest = $("#plusGuest");
+		this.SidebarConfirmDinner = $("#ConfirmButton")
+ 
 	
 
 

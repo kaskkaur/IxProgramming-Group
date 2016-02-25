@@ -1,5 +1,7 @@
 //ExampleView Object constructor
 var DinnerPreparationView = function (container, model) {
+
+	model.addObserver(this);
 	
 	
 	
@@ -109,6 +111,14 @@ var DinnerPreparationView = function (container, model) {
 
 	};
 
+
+		this.update = function(arg) {
+
+
+			
+
+
+		}
 
 
 

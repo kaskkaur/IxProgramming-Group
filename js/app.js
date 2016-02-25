@@ -11,25 +11,13 @@ $(function() {
 	var dinnerPreparationView = new DinnerPreparationView($("#dinnerPreparationView"), model);
 	var dishSelectorView = new DishSelectorView($("#dishSelectorView"), model);
 	
-	var sideBarView = new SideBarView($("#sideBarView"), model);
+	var sideBarView = new SideBarView($("#SideBar"), model);
+	var sideBarController = new SideBarController(sideBarView, model);
 
 	var dinnerOverview = new DinnerOverview($("#dinnerOverview"), model);
 
 	var dishView = new DishView($("#dishView"), model);
 
-
-
-
-
-
-	//var dishSelectorView = new DishSelectorView($("#dishSelectorView"), model);
-
-
-	//var menuListView = new MenuListView($("#menuListView"), model);
-	//}
-
-	
-	
 
 	
 

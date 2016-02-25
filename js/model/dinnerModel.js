@@ -4,55 +4,115 @@ var DinnerModel = function() {
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 
+
+	this.ObserversArray = [];
 	
+
+	this.addObserver = function(observer){
+		this.ObserversArray.push(observer);
+
+
+
+	}
+
+
+	this.notifyObservers = function(arg){
+		console.log("notifyObservers arg = " + arg);
+		console.log(this.ObserversArray);
+
+		for(var i = 0; i < this.ObserversArray.length; i++) {
+			
+			
+			console.log("Observers" + this.ObserversArray);
+
+			
+			this.ObserversArray[i].update(arg);
+
+
+
+		}
+
+	};
+
 
 
 	this.setNumberOfGuests = function(num) {
+		//console.log(numberOfGuests);
 		
 
-		  alert('SETnumberofGuests func initiated');
+
+		//   alert('SETnumberofGuests func initiated');
 
 
 
-		$(".button-increment").on("click", function() { // + - are part of the increment class
+		// $(".button-increment").on("click", function() { // + - are part of the increment class
 
 
 		  
-		  var $button = $(this);
-		  var oldValue = numberOfGuests; // declare oldvalue to be the numberofguests, which sits in the model
+		//   var $button = $(this);
+		//   var oldValue = numberOfGuests; // declare oldvalue to be the numberofguests, which sits in the model
 
-		  if ($button.is("#plusGuest")) {
-			  var newVal = oldValue + 1;
-			  numberOfGuests = newVal; // update the number of guests variable in the model
+		//   if ($button.is("#plusGuest")) {
+		// 	  var newVal = oldValue + 1;
+		// 	  numberOfGuests = newVal; // update the number of guests variable in the model
 			  
 			  
+		// 	} else {
+		//    // no negative values
+		//     if (oldValue > 0) {
+		//       var newVal = oldValue - 1;
+		//       //numberOfGuests = newVal;
+		//       numberOfGuests = newVal;
+		      
+		      
+		      
+		//     } else {
+		//       newVal = 0;
+		//       //numberOfGuests = newVal;
+		//       numberOfGuests = newVal;
+		      
+		//     }
+		   
+
+		//   }		  
+		   	
+		//     console.log(numberOfGuests);
+		  
+		//   $("#GuestsNumber").val(newVal);
+
+
+		
+
+		// });
+		this.notifyObservers("guests");
+
+		var oldValue = numberOfGuests;
+		if (num === 1) {
+
+			var newVal = oldValue + 1;
+			numberOfGuests = newVal;
+
+
+
 			} else {
 		   // no negative values
 		    if (oldValue > 0) {
 		      var newVal = oldValue - 1;
-		      //numberOfGuests = newVal;
+		      
 		      numberOfGuests = newVal;
-		      
-		      
 		      
 		    } else {
 		      newVal = 0;
-		      //numberOfGuests = newVal;
+		     
 		      numberOfGuests = newVal;
 		      
 		    }
-		   
 
-		  }		  
-		   	
-		    console.log(numberOfGuests);
-		  
-		  $("#GuestsNumber").val(newVal);
+		};
+
 
 
 		
-
-		});
 
 
 
@@ -182,6 +242,7 @@ var DinnerModel = function() {
 
 this.getTotalDishPrice = function(id) {
 
+		//this.notifyObservers("wat");
 	
 
 		var sumArr = [] //summation array
@@ -433,9 +494,37 @@ this.getTotalDishPrice = function(id) {
 			'price':6
 			}]
 		}
+
+		,{
+		'id':202,
+		'name':'Strawberry',
+		'type':'dessert',
+		'image':'icecream.jpg',
+		'description':"Here is how you make it... Lore ipsum...",
+		'ingredients':[{ 
+			'name':'ice cream',
+			'quantity':100,
+			'unit':'ml',
+			'price':6
+			}]
+		}
+
+		,{
+		'id':202,
+		'name':'Strawberry',
+		'type':'dessert',
+		'image':'icecream.jpg',
+		'description':"Here is how you make it... Lore ipsum...",
+		'ingredients':[{ 
+			'name':'ice cream',
+			'quantity':100,
+			'unit':'ml',
+			'price':6
+			}]
+		}
 	];
 
-	var numberOfGuests = 4;
+	var numberOfGuests = 7;
 	
 	
 	var dishes = [{

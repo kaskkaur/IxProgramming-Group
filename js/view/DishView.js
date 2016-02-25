@@ -1,12 +1,14 @@
 var DishView = function (container, model) {
 
+	model.addObserver(this);
 
 
 
 
-	var DishTotal = model.getTotalDishPrice(201);
 
-	var dish = model.getDish(201);
+	var DishTotal = model.getTotalDishPrice(1);
+
+	var dish = model.getDish(1);
 	var DishViewGuests = model.getNumberOfGuests();
 	var DishViewContainerString = ""
 	var DishViewMenuString = ""
@@ -141,6 +143,14 @@ var DishView = function (container, model) {
 				});
 
 
+
+	this.update = function(arg) {
+
+
+			
+
+
+		}
 
 
 		$("#DishViewContainer").html(DishViewContainerString);

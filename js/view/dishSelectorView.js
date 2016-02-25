@@ -1,12 +1,10 @@
 //ExampleView Object constructor
 var DishSelectorView = function (container, model) {
+
+	model.addObserver(this);
 	
 	
-	
-	
-	
-	
-	
+
 
 	
 		
@@ -96,6 +94,15 @@ var DishSelectorView = function (container, model) {
 	};
 
 
+
+
+		this.update = function(arg) {
+
+
+			
+
+
+		}
 
 
 	$("#SelectorContainer").html(SelectorContainerString);

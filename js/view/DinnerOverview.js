@@ -1,8 +1,12 @@
 //ExampleView Object constructor
 var DinnerOverview = function (container, model) {
+
+	model.addObserver(this);
 	
 
 	var DinnerList = model.getFullMenu();
+	var GuestNumber = model.getNumberOfGuests;
+	
 
 
 	
@@ -108,9 +112,9 @@ var DinnerOverview = function (container, model) {
 
 						
 						"<div class=\"input-group overview-input text-right\" style=\"width: 200px;\" id=\"OverviewTotal\">" +
-							   "<span class=\"input-group-addon\" id=\"OverviewTotal TotalColor\">" +"Total" +"</span>"+
-							 " <input type=\"text\" class=\"form-control\" aria-label=\"Amount\" readonly value=\"892\">" +
-							   "<span class=\"input-group-addon\"id=\"OverviewTotal TotalColor\" >" +"SEK"+"</span>" +
+							   "<span class=\"TotalColor input-group-addon\" id=\" \">" +"Total" +"</span>"+
+							 " <input id=\"OverviewMenuTotal\" type=\"text\" class=\"form-control\" aria-label=\"Amount\" readonly value=\"892\">" +
+							   "<span class=\"TotalColor input-group-addon\"id=\" \" >" +"SEK"+"</span>" +
 						"</div>" +
 						
 					"</div>" +
@@ -130,6 +134,17 @@ var DinnerOverview = function (container, model) {
 
 
 
+
+	this.update = function(arg) {
+
+
+			
+
+
+		}
+
+
+
 	$("#OverviewContainer").html(OverviewContainerString);
 
 	$("#OverviewTopPanel").html(OverviewTopPanelString);
@@ -141,6 +156,8 @@ var DinnerOverview = function (container, model) {
     $("#numberOfGuests").val(model.getNumberOfGuests()); 
 
 	$("#MenuTotal").val(model.getTotalMenuPrice()); 
+
+	$("#OverviewMenuTotal").val(model.getTotalMenuPrice());
 
 	
 	
