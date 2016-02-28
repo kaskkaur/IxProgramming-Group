@@ -1,15 +1,16 @@
 var DishView = function (container, model) {
 
 	model.addObserver(this);
+	this.container = container;
 
 
 
 
 
-	var DishTotal = model.getTotalDishPrice(1);
+	//var DishTotal = model.getTotalDishPrice(1);
 
 	var dish = model.getDish(1);
-	var DishViewGuests = model.getNumberOfGuests();
+	//var DishViewGuests = model.getNumberOfGuests();
 	var DishViewContainerString = ""
 	var DishViewMenuString = ""
 	console.log(dish);
@@ -28,7 +29,7 @@ var DishView = function (container, model) {
 
 
 
-	
+	var DishViewContainer = function () {	
 
 
 	DishViewContainerString += "<div class=\"col-md-8 selector\"> <!-- whole selector area -->" +
@@ -47,7 +48,7 @@ var DishView = function (container, model) {
 			    				
 			    				"<span class=\"input-group\">" + 
 			    				"<br>" + 	
-										"<h3>" + DishViewGuests +"</h3>" +
+										"<h3>" + model.getNumberOfGuests() +"</h3>" +
 
 								"</span>" +
 
@@ -70,7 +71,7 @@ var DishView = function (container, model) {
 				    				"<th></th>" +
 				    				"<th></th>" +
 				    				"<th></th>" +
-				    				"<h3>Item total:" + "   " + DishTotal + "  " + "SEK" +  "</h3>" +
+				    				"<h3>Item total:" + "   " +  model.getTotalDishPrice(1)  + "  " + "SEK" +  "</h3>" +
 				    				
 
 				    				"<th></th>" +
@@ -122,32 +123,62 @@ var DishView = function (container, model) {
 		"</div> <!-- selector area END -->"
 
 
+		}
+		DishViewContainer();
 
 
+
+		var IngredientLooper = function () {
+		
 		$.each(dish.ingredients, function (name, value) { 
 				self = this;
-				console.log(self);
-				console.log(value.quantity);
+				// console.log(self);
+				// console.log(value.quantity);
 				
 		
 								DishViewMenuString += 	
 								"<tr>" +
-								"<td>" + DishViewGuests * value.quantity + "</td>" +
+								"<td>" + model.getNumberOfGuests() * value.quantity + "</td>" +
 								"<td>" + value.unit +  "</td>" +
 								"<td>" + value.name +  "</td>" +
-								"<td>" + DishViewGuests * value.price +  "</td>" +
+								"<td>" + model.getNumberOfGuests() * value.price +  "</td>" +
 								"</tr>"
 
 
 						
 				});
 
+		}
+
+		IngredientLooper();
+
 
 
 	this.update = function(arg) {
 
+		// console.log(arg)
 
-			
+
+		if (arg === "guests") {
+
+				
+				
+				DishViewContainerString = [];
+				DishViewContainer();
+				$("#DishViewContainer").html(DishViewContainerString);
+
+
+				DishViewMenuString = [];
+				IngredientLooper();
+				$("#DishViewMenu").html(DishViewMenuString);
+
+
+
+
+
+			}
+
+		
 
 
 		}

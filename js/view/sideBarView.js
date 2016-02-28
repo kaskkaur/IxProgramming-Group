@@ -1,7 +1,9 @@
 var SideBarView = function (container, model) {
 
 	
+	this.container = container;
 	model.addObserver(this);
+	
 
 
 
@@ -11,6 +13,7 @@ var SideBarView = function (container, model) {
 	var FullMenu = model.getFullMenu();
 	var MenuTotal = model.getTotalMenuPrice();
 	var numberOfGuests = model.getNumberOfGuests();
+	
 
 
 
@@ -98,8 +101,8 @@ var SideBarView = function (container, model) {
 
 						"</div>" +
 
-						"<a class=\"btn-group btn-group-md btn-custom\" role=\"group\" id=\"ConfirmButton\" href=\"\">" +
-						"<type=\"button\" class=\"btn btn-default btn-custom\"> Confirm dinner </button>" +
+						"<a class=\"btn-group btn-group-md btn-custom\" role=\"group\" id=\"ConfirmButton\">" +
+						"<type=\"button\" class=\"btn btn-default btn-custom\"> Confirm dinner" +
 				
 						"</a>" +
 
@@ -150,11 +153,14 @@ var SideBarView = function (container, model) {
 		$("#SideBar").html(SideBarString);
 		$("#SideBarItems").html(SideBarItemsString);
 		$("#MenuTotal").val(MenuTotal);
+
+		console.log(this.SidebarConfirmDinner)
 		
 		
+		this.ConfirmButton = $("#ConfirmButton");
 		this.minusGuest = $("#minusGuest");
 		this.plusGuest = $("#plusGuest");
-		this.SidebarConfirmDinner = $("#ConfirmButton")
+		
  
 	
 

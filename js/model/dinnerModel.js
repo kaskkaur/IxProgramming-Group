@@ -17,8 +17,8 @@ var DinnerModel = function() {
 
 
 	this.notifyObservers = function(arg){
-		console.log("notifyObservers arg = " + arg);
-		console.log(this.ObserversArray);
+		// console.log("notifyObservers arg = " + arg);
+		// console.log(this.ObserversArray);
 
 		for(var i = 0; i < this.ObserversArray.length; i++) {
 			

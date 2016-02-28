@@ -2,6 +2,7 @@
 var DinnerPreparationView = function (container, model) {
 
 	model.addObserver(this);
+	this.container = container;
 	
 	
 	
@@ -29,7 +30,9 @@ var DinnerPreparationView = function (container, model) {
 
 	"</div> " 
 
-	
+	var PreparationHead = function() {
+
+     
 
      PreparationHeadString += "<div class=\"col-md-12 selector-menu \">"+ 
 			    		 
@@ -44,7 +47,7 @@ var DinnerPreparationView = function (container, model) {
 						    		" <h2>"+
 						    		 	"<span class=\"input-group\">"+ 
 						    		 	
-										"<input type=\"text\" value=\"3\" class=\"field left GuestsOverviewNumber\" readonly>"+	
+										"<input id=\"GuestsPreparationView\" type=\"text\" value=\"3\" class=\"field left GuestsOverviewNumber\" readonly>"+	
 										
 									"</span>"+
 								"</h2>"+
@@ -65,6 +68,11 @@ var DinnerPreparationView = function (container, model) {
 								"<hr>"+
 
 			    	"</div>" 
+
+
+			    }
+
+			    PreparationHead();
 
 
 
@@ -110,9 +118,7 @@ var DinnerPreparationView = function (container, model) {
 
 
 	};
-
-
-		this.update = function(arg) {
+	this.update = function(arg) {
 
 
 			
@@ -121,23 +127,33 @@ var DinnerPreparationView = function (container, model) {
 		}
 
 
+		// this.update = function(arg) {
 
 
+			// PreparationHeadString = [];
+			// PreparationHead();
+			// $("#DishViewContainer").html(DishViewContainerString);
+
+
+
+		// }
+
+
+
+
+	
 	$("#PreparationViewContainer").html(PreparationViewContainerString);
 	
 	$("#PreparationHead").html(PreparationHeadString);
 
+	$("#GuestsPreparationView").val(model.getNumberOfGuests());
+
 	$("#PreparationItems").html(PreparationItemsString);
-
-
 
 	$("#numberOfGuests").val(model.getNumberOfGuests()); 
 
 	$("#MenuTotal").val(model.getTotalMenuPrice()); 
     
-	
-
-
 
 
 }

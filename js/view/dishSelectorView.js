@@ -2,6 +2,7 @@
 var DishSelectorView = function (container, model) {
 
 	model.addObserver(this);
+	this.container = container;
 	
 	
 
@@ -105,7 +106,7 @@ var DishSelectorView = function (container, model) {
 		}
 
 
-	$("#SelectorContainer").html(SelectorContainerString);
+	$("#DishSelectorContainer").html(SelectorContainerString);
 	$("#SelectorFilter").html(SelectorFilterString);
 	
 	$("#SelectorDishes").html(SelectorDishesString);
@@ -120,8 +121,8 @@ var DishSelectorView = function (container, model) {
 	
 
 	console.log(SelectorContainerString);
-	console.log(SelectorFilterString);
-	console.log(SelectorDishesString);
+	// console.log(SelectorFilterString);
+	// console.log(SelectorDishesString);
 
 	
 	

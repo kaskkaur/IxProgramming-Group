@@ -2,6 +2,7 @@
 var DinnerOverview = function (container, model) {
 
 	model.addObserver(this);
+	this.container = container;
 	
 
 	var DinnerList = model.getFullMenu();

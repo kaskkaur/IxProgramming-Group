@@ -23,15 +23,20 @@ var SideBarController = function(view, model) {
 
 	
 
-	// view.SidebarConfirmDinner.click() {
 
 
 
 
 
+		ConfirmButton.onclick = function() {
 
-	// });
 
+	stateController.dishSelectorView.container.hide();
+	stateController.dinnerOverview.container.show();
+	stateController.sideBarView.container.hide();
+	
+
+	}
 
 
 
