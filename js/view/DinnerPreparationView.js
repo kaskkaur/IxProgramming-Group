@@ -6,9 +6,7 @@ var DinnerPreparationView = function (container, model) {
 	
 	
 	
-	var DinnerPrepList = model.getFullMenu();
-	
-	
+	var DinnerPrepList = model.getFullMenu();	
 	
 	var PreparationHeadString = "";
 	var PreparationViewContainerString ="";
@@ -30,49 +28,38 @@ var DinnerPreparationView = function (container, model) {
 
 	"</div> " 
 
-	var PreparationHead = function() {
+	// var PreparationHead = function() {
 
      
 
-     PreparationHeadString += "<div class=\"col-md-12 selector-menu \">"+ 
+     PreparationHeadString += "<div class=\"col-md-12 selector-menu container\">"+ 
 			    		 
-			    			"<div class=\"col-md-4\"> "+
+			    			"<div class=\"col-md-6\"> "+
 
-						    		" <h2 id=\"MyDinnerFor\">"+"  My dinner for"+" </h2> "+	
+						    		" <h2 id=\"MyDinnerFor\">" + "My dinner for" + " " +  "<span id=\"GuestNumberPrep\"></span>" + " " + "people" + "</h2> " +	
 
-							"</div>"+
+							"</div>" +
 
-							"<div class=\"col-md-4\">"+ 
-
-						    		" <h2>"+
-						    		 	"<span class=\"input-group\">"+ 
-						    		 	
-										"<input id=\"GuestsPreparationView\" type=\"text\" value=\"3\" class=\"field left GuestsOverviewNumber\" readonly>"+	
-										
-									"</span>"+
-								"</h2>"+
-
-
-							"</div>"+
+							
 
 					
-							"<div class=\"col-md-4\"> "+
+							"<div class=\"col-md-6\"> "+
 
-						"<a class=\"btn btn-group btn-group-md pull-right center-block\" role=\"group\" id=\"BackToSelector\" href=\"select.html\">"+
+								"<a class=\"btn btn-group btn-group-md pull-right center-block\" role=\"group\" id=\"BackToSelector\" >"+
 									"<type=\"button\" class=\"btn btn-default btn-custom OverviewBackToSelector\">" + "Go back and edit dinner"+" </a>"+
 
 				    		 
 							"</div>"+
 
 
-								"<hr>"+
+								
 
 			    	"</div>" 
 
 
-			    }
+			    // }
 
-			    PreparationHead();
+			    // PreparationHead();
 
 
 
@@ -120,6 +107,17 @@ var DinnerPreparationView = function (container, model) {
 	};
 	this.update = function(arg) {
 
+		if (arg === "guests") {
+
+			//alert("SUP")
+
+
+
+
+			$("#GuestNumberPrep").html(model.getNumberOfGuests());
+
+		}
+
 
 			
 
@@ -140,6 +138,7 @@ var DinnerPreparationView = function (container, model) {
 
 
 
+	this.BackToSelector = $("#BackToSelector");
 
 	
 	$("#PreparationViewContainer").html(PreparationViewContainerString);
@@ -150,9 +149,11 @@ var DinnerPreparationView = function (container, model) {
 
 	$("#PreparationItems").html(PreparationItemsString);
 
-	$("#numberOfGuests").val(model.getNumberOfGuests()); 
+	//$("#numberOfGuests").val(model.getNumberOfGuests()); 
 
 	$("#MenuTotal").val(model.getTotalMenuPrice()); 
+
+	$("#GuestNumberPrep").html(model.getNumberOfGuests());
     
 
 

@@ -74,10 +74,12 @@ h1 {
 
 	margin-top: 70px;
   color: black;
-	max-width: 50%;
+	width: 50%;
+  min-width: 300px;
 	padding-top: 0px;
 	opacity: 0.9;
-  height: 45%;
+  height: 70%;
+  /*max-height: 100%;*/
   padding: 15px;
 
 }
@@ -88,6 +90,7 @@ h1 {
 
   padding: 20px;
   margin: 20px;
+  font-size: 50%;
 }
 
 hr {
@@ -164,6 +167,61 @@ hr {
   background-color: #efefef;
   height: 630px;
   width: 200px;
+  
+  /*max-width: 100%;*/
+  margin: 0;
+  padding: 0;
+  
+}
+
+#guests {
+
+height: 25%;
+border-style: solid;
+padding: 10px;
+margin: 0;
+border-top: 0;
+border-left: 0;
+border-right: 0;
+font-size: 150%;
+ 
+}
+
+.ShoppingList {
+
+  
+  overflow: auto;
+  height: 60%;
+
+
+
+ 
+}
+
+.total {
+background-color: #efefef;
+
+border-style: solid;
+position: absolute;
+
+height: 15%;
+
+bottom: 0;
+width: 100%;
+border-left: 0;
+border-right: 0;
+border-bottom: 0;
+overflow: auto;
+  
+}
+
+/*.sidelist{
+
+ 
+  border-style: solid;
+  background-color: #efefef;
+  height: 630px;
+  width: 200px;
   margin: 0;
   padding: 0;
 }
@@ -203,7 +261,7 @@ border-left: 0;
 border-right: 0;
 border-bottom: 0;
   
-}
+}*/
 
 .select {
 
@@ -245,10 +303,11 @@ width: 100%;
 }
 
 .selector-menu {
-height: 180px;
+height: 40%;
 background-color: white;
 padding-top: 0;
 margin: 0;
+padding-bottom: 20px;
 border-bottom: solid;
 
 
@@ -260,13 +319,14 @@ border-bottom: solid;
 background-color: #FFFFCC;
 
 margin: 0;
-height: 450px;
-width: 35%;
+height: 35%;
+/*width: 50%;*/
+
 border-style: solid;
 overflow: auto;
 right: 0;
 left: 0;
-float: right;
+
 top: 0;
 padding-bottom: 2px;
 border-top: none;
@@ -278,7 +338,7 @@ border-top: none;
 background-color: #efefef;
 float: left;
 
-position: absolute;
+/*position: absolute;*/
 left: 0;
 
 
@@ -333,7 +393,12 @@ left: 0;
   float: right;
 }
 
-.anim { display:none }
+.anim { 
+
+
+  display:none 
+
+}
 
 
 .GuestsOverviewNumber {
@@ -360,8 +425,9 @@ background: none;
 
 .OverviewBackToSelector{
 
-  margin-top: 50px;
-  margin-right: 140px;
+ /* margin-top: 50px;
+  margin-right: 140px;*/
+  position: relative;
 }
 
 #MyDinnerFor {
@@ -383,18 +449,19 @@ hr {
 }
 
 .PrintFullRecipe {
-  margin-right: 60px;
-  float: right;
-  margin-top: 60px;
+ /* margin-right: 60px;
+  float: right;*/
+  /*margin-top: 10px;*/
+  /*position: relative;*/
 
 
 }
 
 #OverviewTotal{
 
-  margin-left: 250px;
-  margin-top: 0px;
-
+  /*margin-right: 250px;*/
+  margin-top: 7px;
+  /*position: relative;*/
 
 }
 .TotalColor {
@@ -450,4 +517,26 @@ mainheader a h1:hover {
 .table {
 
   overflow: auto;
+}
+
+
+#StartPlanningButton {
+
+  position: relative;
+}
+
+
+.PrintButton {
+
+ /* position: relative;*/
+  padding: 7px;
+  /*padding-right: 50px;*/
+
+}
+
+.DishInfo {
+
+ 
+
+
 }

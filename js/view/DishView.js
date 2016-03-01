@@ -1,7 +1,11 @@
-var DishView = function (container, model) {
+var DishView = function (container, model, id) {
 
 	model.addObserver(this);
 	this.container = container;
+	
+	dishID = 1;
+	this.id = dishID;
+
 
 
 
@@ -9,7 +13,8 @@ var DishView = function (container, model) {
 
 	//var DishTotal = model.getTotalDishPrice(1);
 
-	var dish = model.getDish(1);
+	
+	var dish = model.getDish(dishID);
 	//var DishViewGuests = model.getNumberOfGuests();
 	var DishViewContainerString = ""
 	var DishViewMenuString = ""
@@ -32,18 +37,37 @@ var DishView = function (container, model) {
 	var DishViewContainer = function () {	
 
 
-	DishViewContainerString += "<div class=\"col-md-8 selector\"> <!-- whole selector area -->" +
+	DishViewContainerString += "<div class=\"col-sm-8 selector\"> <!-- whole selector area -->" +
+
+			    "<div class=\"container\">" +
 
 			    	"<div class=\"row\">" +
 
-			    		"<div class=\"col-lg-6 selector-ingredients\">" +
-			    			"<div class=\"col-lg-6\">" + 
+
+			    	 "<div class=\"col-sm-6 selector-method DishInfo\" id=\"Meatballs\">" +
+
+						 	"<h2>" + dish.name + "</h2>" +
+						 	"<img src=\"images/" + dish.image + "\"></img>" +
+						 	"<p>" + dish.description + "</p>" +
+
+						 
+							"<a class=\"btn btn-group btn-group-md\" role=\"group\" id=\"DishBackToSelector\">" +
+							"<type=\"button\" class=\"btn btn-default btn-custom\"> Back to Select Dish </a>" +
+							
+		
+			    	
+			    	"</div>" +
+
+
+
+			    		"<div class=\"col-sm-6 selector-ingredients\">" +
+			    			"<div class=\"col-sm-6\">" + 
 			    				"<h3>" + dish.name + " " + "for</h3>" +
 
 			    			"</div>" +
 
 
-							"<div class=\"col-lg-6\">" +
+							"<div class=\"col-sm-6\">" +
 
 			    				
 			    				"<span class=\"input-group\">" + 
@@ -71,7 +95,7 @@ var DishView = function (container, model) {
 				    				"<th></th>" +
 				    				"<th></th>" +
 				    				"<th></th>" +
-				    				"<h3>Item total:" + "   " +  model.getTotalDishPrice(1)  + "  " + "SEK" +  "</h3>" +
+				    				"<h3>Item total:" + "   " +  model.getTotalDishPrice(dishID)  + "  " + "SEK" +  "</h3>" +
 				    				
 
 				    				"<th></th>" +
@@ -86,34 +110,32 @@ var DishView = function (container, model) {
 
 			    			"</div> <!-- end of lasagne recipe -->" +
 			    			"<hr>" +
+			    			
 			    			"<div id=\"ConfirmButtonBox\">" +
-							"<a class=\"btn-group btn-group-md\" role=\"group\" id=\"ConfirmDish\" href=\"dinner_overview.html\">" +
+							"<a class=\"btn-group btn-group-md\" role=\"group\" id=\"ConfirmDish\">" +
 							"<type=\"button\" class=\"btn btn-default btn-custom\"> Confirm Dish </button>" +
 							"</a>" +
+							"</div>" +
    
-						 "</div><!-- /.col-lg-6 -->" +
+						
 
-
-
-
-
-
-			    		"</div>" +
-
-
-						 "<div class=\"col-lg-6 selector-method\" id=\"Meatballs\">" +
-
-						 	"<h2>" + dish.name + "</h2>" +
-						 	"<img src=\"images/" + dish.image + "\"></img>" +
-						 	"<p>" + dish.description + "</p>" +
-
-						 
-							"<a class=\"btn btn-group btn-group-md\" role=\"group\" id=\"BackToSelector\" href=\"select.html\">" +
-							"<type=\"button\" class=\"btn btn-default btn-custom\"> Back to Select Dish </a>" +
+						 	
 							
 		
 			    	
 			    		"</div>" +
+
+
+
+
+
+
+			    	
+
+
+						
+
+			    	"</div>" +
 			            
 			"</div> <!-- selector menu keywords and accordion END -->" +
 
@@ -186,6 +208,7 @@ var DishView = function (container, model) {
 
 		$("#DishViewContainer").html(DishViewContainerString);
 		$("#DishViewMenu").html(DishViewMenuString);
+		this.BackToSelector = $("#DishBackToSelector");
 		
 		console.log(DishViewContainerString);
 		console.log(DishViewMenuString);

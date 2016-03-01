@@ -6,7 +6,8 @@ var DinnerOverview = function (container, model) {
 	
 
 	var DinnerList = model.getFullMenu();
-	var GuestNumber = model.getNumberOfGuests;
+	var GuestNumber = model.getNumberOfGuests();
+	// var TotalDishPrice = model.getTotalDishPrice();
 	
 
 
@@ -19,9 +20,11 @@ var DinnerOverview = function (container, model) {
 
 
 
+
+
 	OverviewContainerString +=  "<div class=\"container homelette\">" +
 
-	"<div id=\"\" class=\"col-md-8 selector\"> <!-- whole selector area -->" + 
+	"<div id=\"\" class=\"col-sm-12 selector\"> <!-- whole selector area -->" + 
 	"<div id=\"OverviewTopPanel\"></div>" +
 	
 	"<div id=\"OverviewDishes\"></div>" +
@@ -36,47 +39,89 @@ var DinnerOverview = function (container, model) {
 
 
 
-	OverviewTopPanelString += "<div class=\"col-md-12 selector-menu\"> " +
-			    		 
-			    			"<div class=\"col-md-4\">" + 
+	OverviewTopPanelString += 
 
-						    		 "<h2 id=\"MyDinnerFor\">  My dinner for </h2>" + 	
+	"<div class=\"container\">" + 
+		"<div class=\"col-sm-12 selector-menu\"> " +
+			    		 	"<div class=\"container\">" + 
+			    			
+			    			"<div class=\"col-sm-2 pull-left\">" + 
 
-							"</div>" +
-
-							"<div class=\"col-md-4\">" + 
-
-						    		 "<h2>" +
-						    		 	"<span class=\"input-group\">" +
-						    		 	
-										"<input type=\"text\" value=\"3\" class=\"field left GuestsOverviewNumber\" readonly>" +	
-										
-									"</span>" + 
-								"</h2>" +
+						    		 "<h2 id=\"MyDinnerFor\">  My dinner for" + " " + "<span id =\"GuestNumber\"></span>" + "  " + "people" +  "</h2>" + 	
 
 							"</div>" +
+
+							
 					
-							"<div class=\"col-md-4\">" + 
+							"<div class=\"col-sm-2  \">" + 
 
-								"<a class=\"btn btn-group btn-group-md pull-right center-block\" href=\"select.html\" role=\"group\" id=\"BackToSelector\">" +
-									"<type=\"button\" class=\"btn btn-default btn-custom OverviewBackToSelector\"> Go back and edit dinner </a>" +
+								"<a class=\"btn btn-group btn-group-md pull-right center-block role=\"group\" id=\"BackToSelector\">" +
+									"<type=\"button\" class=\"btn btn-default btn-custom\"> Go back and edit dinner </a>" +
 		 
 							"</div>" +
 
+						
+								
 
-								"<hr>" +
+
+
+
+
+						
+
+						
+
+						"<div class=\"col-sm-2 PrintButton center-block\">" +
+					
+				    		
+							"<a id=\"PrintFullRecipe\" name=\"singlebutton\" class=\"btn btn-default\" >" +"Print full recipe!"+"</a> "+
+							
+						
+						"</div>"+
+
+						"<div class=\"col-xs-2\">" + 
+
+						"<div class=\"input-group overview-input text-right \" style=\"width: 200px;\" id=\"OverviewTotal\">" +
+							   "<span class=\"TotalColor input-group-addon\" id=\" \">" +"Total" +"</span>"+
+							 " <input id=\"OverviewMenuTotal\" type=\"text\" class=\"form-control\" aria-label=\"Amount\" readonly value=\"892\">" +
+							   "<span class=\"TotalColor input-group-addon\"id=\" \" >" +"SEK"+"</span>" +
+						"</div>" +
+
+						"</div>" +
+
+						"<div class=\"col-sm-4\">" +
+					
+				    		
+							
+							
+						
+						"</div>"+
+
+						
+						
+						"</div>" +
+
+						"</div>" +
+
+
+
+							
+
+
+								
 
 			    	"</div> <!-- \"My dinner for\" and button end -->" 
 
 
-
+var OverviewDishesLooper = function () {
+	
 	for (var i = 0; i < DinnerList.length; i++) {
 		console.log(DinnerList[i].name);
 		id = DinnerList[i].id;
 
 
-		OverviewDishesString += "<div class=\"col-lg-3\">" +
-							"<div class=\"panel panel-warning anim\">"+
+		OverviewDishesString += "<div class=\"col-sm-3\">" +
+							"<div class=\"panel panel-warning\">"+
 					  			"<div class=\"panel-heading\">"+ DinnerList[i].name +
 
 					  			"<span><button class=\"button button-default glyphicon glyphicon-plus AddButton\"></button></span>"+
@@ -99,39 +144,44 @@ var DinnerOverview = function (container, model) {
 
 	};
 
+	}
+
+	OverviewDishesLooper();
+
 	OverviewConfirmString += "<div class=\"row\">"+ 
 
 			    			"<hr>"+
 			    			"<br>"+
 			    			"<br>"+
+			    			"</div>"
 
-				"<div class=\"row\">" +
+			// 	"<div class=\"row\">" +
 						
 						
-							"<div class=\"col-md-6 text-right center-block pull-right\">" +
+			// 		"<div class=\"col-md-6 text-right center-block pull-right\">" +
 
 
 						
-						"<div class=\"input-group overview-input text-right\" style=\"width: 200px;\" id=\"OverviewTotal\">" +
-							   "<span class=\"TotalColor input-group-addon\" id=\" \">" +"Total" +"</span>"+
-							 " <input id=\"OverviewMenuTotal\" type=\"text\" class=\"form-control\" aria-label=\"Amount\" readonly value=\"892\">" +
-							   "<span class=\"TotalColor input-group-addon\"id=\" \" >" +"SEK"+"</span>" +
-						"</div>" +
+			// 			"<div class=\"input-group overview-input text-right\" style=\"width: 200px;\" id=\"OverviewTotal\">" +
+			// 				   "<span class=\"TotalColor input-group-addon\" id=\" \">" +"Total" +"</span>"+
+			// 				 " <input id=\"OverviewMenuTotal\" type=\"text\" class=\"form-control\" aria-label=\"Amount\" readonly value=\"892\">" +
+			// 				   "<span class=\"TotalColor input-group-addon\"id=\" \" >" +"SEK"+"</span>" +
+			// 			"</div>" +
 						
-					"</div>" +
+			// 		"</div>" +
 					
 				
-			"</div>"+
+			// "</div>"
 
 
-				"<div class=\"row\">"+
-					"<div class=\"container\">"+
-				    		"<div class=\"col-md-6 PrintFullRecipe\"> "+
-							"<a id=\"PrintFullRecipe\" name=\"singlebutton\" class=\"btn btn-primary btn-custom PrintFullRecipe\" href=\"dinner_preparation.html\">" +"Print full recipe!"+"</a> "+
-							"</div>"+
-						"</div>"+
-				"</div>"+
-				"</div>"
+				// "<div class=\"row\">"+
+				// 	"<div class=\"container\">"+
+				//     		"<div class=\"col-sm-6 PrintFullRecipe\"> "+
+				// 			"<a id=\"PrintFullRecipe\" name=\"singlebutton\" class=\"btn btn-primary btn-custom PrintFullRecipe\" >" +"Print full recipe!"+"</a> "+
+				// 			"</div>"+
+				// 		"</div>"+
+				// "</div>"+
+				// "</div>"
 
 
 
@@ -139,11 +189,57 @@ var DinnerOverview = function (container, model) {
 	this.update = function(arg) {
 
 
+		if (arg === "guests") {
+
+			//alert("sup");
+
+
+				
+				
+				$("#GuestNumber").html(model.getNumberOfGuests());
+				
+				OverviewDishesString = [];
+				OverviewDishesLooper();
+				$("#OverviewDishes").html(OverviewDishesString);
+
+
+				console.log(OverviewDishesString);
+
+				$("#OverviewMenuTotal").val(model.getTotalMenuPrice());
+
+				// alert("SUP");
+
+				
+
+				// $("#numberOfGuests").val(model.getNumberOfGuests());
+				// $("#MenuTotal").val(model.getTotalMenuPrice());
+				
+				// S
+				// DishLooper();
+				// $("#SideBarItems").html(SideBarItemsString);
+
+
+
+			} 
+
+				
+				
+
+			
+
+
+
+
+
 			
 
 
 		}
 
+
+
+	this.BackToSelector = $("#BackToSelector");
+	this.PrintFullRecipe = $("#PrintFullRecipe");
 
 
 	$("#OverviewContainer").html(OverviewContainerString);
@@ -159,6 +255,8 @@ var DinnerOverview = function (container, model) {
 	$("#MenuTotal").val(model.getTotalMenuPrice()); 
 
 	$("#OverviewMenuTotal").val(model.getTotalMenuPrice());
+
+	$("#GuestNumber").html(model.getNumberOfGuests());
 
 	
 	

@@ -1,13 +1,25 @@
 var DinnerOverviewController = function(view, model) {
 
 
-	ConfirmButton.onclick = function() {
+	BackToSelector.onclick = function() {
 
 	
 
-	stateController.dinnerOverview.container.show();
-	stateController.sideBarView.container.hide();
-	stateController.dishSelectorView.container.hide();
+	stateController.dinnerOverview.container.hide();
+	stateController.sideBarView.container.show();
+	stateController.dishSelectorView.container.show();
+
+}
+
+
+
+	PrintFullRecipe.onclick = function() {
+
+	
+
+	stateController.dinnerOverview.container.hide();
+	
+	stateController.dinnerPreparationView.container.show();
 
 }
 

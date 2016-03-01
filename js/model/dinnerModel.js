@@ -125,7 +125,7 @@ var DinnerModel = function() {
 
 		// alert('GETNumOfGuests initiated')
 		
-		console.log(numberOfGuests)
+		//console.log(numberOfGuests)
 		return numberOfGuests;
 		
 		
@@ -510,6 +510,18 @@ this.getTotalDishPrice = function(id) {
 		}
 
 		,{
+		'id':202,
+		'name':'Strawberry',
+		'type':'dessert',
+		'image':'icecream.jpg',
+		'description':"Here is how you make it... Lore ipsum...",
+		'ingredients':[{ 
+			'name':'ice cream',
+			'quantity':100,
+			'unit':'ml',
+			'price':6
+			}]
+		},{
 		'id':202,
 		'name':'Strawberry',
 		'type':'dessert',

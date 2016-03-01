@@ -5,19 +5,17 @@ var DishSelectorView = function (container, model) {
 	this.container = container;
 	
 	
-
-
-	
 		
 	var SelectorDishesString = "";
 	var SelectorContainerString ="";
 	var SelectorFilterString ="";
-	var FoodList = model.getAllDishes("starter");
+	var type = "main dish"
+	var FoodList = model.getAllDishes(type);
 	//console.log(SelectorDishes);
 	
 
 
-	SelectorContainerString += "<div id=\"\" class=\"col-md-8 selector\"> <!-- whole selector area -->" + 
+	SelectorContainerString += "<div id=\"\" class=\"col-sm-8 selector\"> <!-- whole selector area -->" + 
 
 	"<div id=\"SelectorFilter\"></div>" + "<div id=\"SelectorDishes\"></div>" +
 
@@ -26,13 +24,13 @@ var DishSelectorView = function (container, model) {
 
 	"</div> <!-- selector area END -->" 
 
-	SelectorFilterString += "<div class=\"col-md-12 selector-menu\">" + 
+	SelectorFilterString += "<div class=\"col-sm-12 selector-menu\">" + 
 			    		"<h2> <small id=\"selecttext\"> SELECT DISH </h2>" +
 			    		"<hr>" +
 
 			    		"<div id=\"\" class=\"row\"> <!-- selector menu keywords and accordion --> " +
 						
-						  "<div class=\"col-lg-6\">" +
+						  "<div class=\"col-sm-6\">" +
 						    "<div class=\"input-group\">" +
 						      "<input type=\"text\" class=\"form-control\" placeholder=\"Enter keywords..\">" +
 						      "<span class=\"input-group-btn\">" +
@@ -42,10 +40,10 @@ var DishSelectorView = function (container, model) {
 						        "</button>" +
 						      "</span>" +
 						    "</div><!-- /input-group -->" +
-						  "</div><!-- /.col-lg-6 -->" +
+						  "</div><!-- /.col-sm-6 -->" +
 				
 
-			    	"<div class=\"col-lg-6\">" +
+			    	"<div class=\"col-sm-6\">" +
 
 			    		"<select class=\"form-control\">" +
 					    "<option value=\"main\">Main</option>" +
@@ -65,18 +63,19 @@ var DishSelectorView = function (container, model) {
 
 	for (var i = 0; i < FoodList.length; i++) {
 		console.log(FoodList[i].name);
+		id = FoodList[i].id
 
 
 		
 
 
-		SelectorDishesString += "<div class=\"col-lg-3\">" +
+		SelectorDishesString += "<div class=\"col-sm-3\">" +
 			"<div class=\"panel panel-warning anim\">" +
 	  			"<div class=\"panel-heading\">" +   FoodList[i].name +
 
-	  			"<span><button class=\"button button-default glyphicon glyphicon-plus AddButton\"></button></span>" +
+	  			"<span><button id=\"" + "AddDish" + id + "\"class=\"button button-default glyphicon glyphicon-plus AddButton\"></button></span>" +
 	  			
-	  			"<span><button class=\"button button-default glyphicon glyphicon glyphicon-th-list AddButton\"></button></span>" +
+	  			"<span><button id=\"" + id + "\"class=\"button button-default glyphicon glyphicon glyphicon-th-list AddButton DishInfoButton\"></button></span>" +
 
 
 	  			"</div>" + 
@@ -106,6 +105,14 @@ var DishSelectorView = function (container, model) {
 		}
 
 
+	
+
+
+
+	console.log(this.AddDish);
+
+
+	
 	$("#DishSelectorContainer").html(SelectorContainerString);
 	$("#SelectorFilter").html(SelectorFilterString);
 	
@@ -115,12 +122,23 @@ var DishSelectorView = function (container, model) {
 
 	$("#MenuTotal").val(model.getTotalMenuPrice()); 
 
-	//document.getElementById("SelectorContainer").innerHTML = SelectorContainerString;
+	this.DishInfoButton = $(".DishInfoButton");
+
+
+	// this.DishInfoButton = $("#AddDish100");
+
+	 
+
+	 //this.DishInfoButton = document.getElementsByClassName("DishInfoButton");
+	
+
+
+	console.log(this.DishInfoButton)
 	//document.getElementById("SelectorFilter").innerHTML = SelectorFilterString;
 	//document.getElementById("SelectorDishes").innerHTML = SelectorDishesString;
 	
 
-	console.log(SelectorContainerString);
+	// console.log(SelectorContainerString);
 	// console.log(SelectorFilterString);
 	// console.log(SelectorDishesString);
 
