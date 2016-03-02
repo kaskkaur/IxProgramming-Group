@@ -9,8 +9,8 @@ var DishSelectorView = function (container, model) {
 	var SelectorDishesString = "";
 	var SelectorContainerString ="";
 	var SelectorFilterString ="";
-	var type = "main dish"
-	var FoodList = model.getAllDishes(type);
+	// var type = "main dish"
+	var FoodList = model.getAllDishes(model.DishType);
 	//console.log(SelectorDishes);
 	
 
@@ -45,10 +45,10 @@ var DishSelectorView = function (container, model) {
 
 			    	"<div class=\"col-sm-6\">" +
 
-			    		"<select class=\"form-control\">" +
-					    "<option value=\"main\">Main</option>" +
+			    		"<select id=\"FilterMenu\" class=\"form-control\">" +
+					    "<option value=\"main dish\">Main</option>" +
 					    "<option value=\"dessert\">Dessert</option>" +
-					    "<option value=\"appetiser\">Appetiser</option>" +
+					    "<option value=\"starter\">Starters</option>" +
 					    "<option value=\"drinks\">Drinks</option>" +
 					    "<option value=\"other\">Other</option>" +
 					"</select>" +
@@ -59,7 +59,7 @@ var DishSelectorView = function (container, model) {
 			    "</div> <!-- selector menu keywords and accordion END -->" 
 
 
-
+var SelectorDishesLoop = function() {
 
 	for (var i = 0; i < FoodList.length; i++) {
 		console.log(FoodList[i].name);
@@ -70,12 +70,12 @@ var DishSelectorView = function (container, model) {
 
 
 		SelectorDishesString += "<div class=\"col-sm-3\">" +
-			"<div class=\"panel panel-warning anim\">" +
+			"<div class=\"panel panel-warning\">" +
 	  			"<div class=\"panel-heading\">" +   FoodList[i].name +
 
-	  			"<span><button id=\"" + "AddDish" + id + "\"class=\"button button-default glyphicon glyphicon-plus AddButton\"></button></span>" +
+	  			// "<span><button id=\"" + "AddDish" + id + "\"class=\"button button-default glyphicon glyphicon-plus AddButton\"></button></span>" +
 	  			
-	  			"<span><button id=\"" + id + "\"class=\"button button-default glyphicon glyphicon glyphicon-th-list AddButton DishInfoButton\"></button></span>" +
+	  			"<span><button id=\"" + id + "\"class=\"button button-default glyphicon glyphicon glyphicon-plus AddButton DishInfoButton\"></button></span>" +
 
 
 	  			"</div>" + 
@@ -94,15 +94,42 @@ var DishSelectorView = function (container, model) {
 	};
 
 
+	}
+
+	SelectorDishesLoop();
 
 
-		this.update = function(arg) {
 
 
+		// this.update = function(model, arg) {
+
+		// 	if (arg == "starter" || arg == "main dish" || arg == "dessert") {
+		// 		this.updateType(arg);
+		// 		alert("sip");
+
+		// 	}
+		// }
 			
 
 
+	this.update = function (arg) {
+
+		if (arg == "TypeChange") {
+
+		filter = "";
+		FoodList = model.getAllDishes(model.DishType);
+
+		SelectorDishesString = [];
+		SelectorDishesLoop();
+		$("#SelectorDishes").html(SelectorDishesString);
+
+
 		}
+
+
+
+
+	}
 
 
 	
@@ -123,6 +150,7 @@ var DishSelectorView = function (container, model) {
 	$("#MenuTotal").val(model.getTotalMenuPrice()); 
 
 	this.DishInfoButton = $(".DishInfoButton");
+	this.FilterMenu = $("#FilterMenu");
 
 
 	// this.DishInfoButton = $("#AddDish100");

@@ -1,10 +1,11 @@
 var DishView = function (container, model, id) {
-
+	self = this;
 	model.addObserver(this);
 	this.container = container;
 	
-	dishID = 1;
-	this.id = dishID;
+	
+	
+
 
 
 
@@ -13,8 +14,8 @@ var DishView = function (container, model, id) {
 
 	//var DishTotal = model.getTotalDishPrice(1);
 
-	
-	var dish = model.getDish(dishID);
+	// var dishID = model.currentID;
+	var dish = model.getDish(model.currentID);
 	//var DishViewGuests = model.getNumberOfGuests();
 	var DishViewContainerString = ""
 	var DishViewMenuString = ""
@@ -72,7 +73,7 @@ var DishView = function (container, model, id) {
 			    				
 			    				"<span class=\"input-group\">" + 
 			    				"<br>" + 	
-										"<h3>" + model.getNumberOfGuests() +"</h3>" +
+										"<h3>" + model.getNumberOfGuests(model.currentID) +"</h3>" +
 
 								"</span>" +
 
@@ -95,7 +96,7 @@ var DishView = function (container, model, id) {
 				    				"<th></th>" +
 				    				"<th></th>" +
 				    				"<th></th>" +
-				    				"<h3>Item total:" + "   " +  model.getTotalDishPrice(dishID)  + "  " + "SEK" +  "</h3>" +
+				    				"<h3>Item total:" + "   " +  model.getTotalDishPrice(model.currentID)  + "  " + "SEK" +  "</h3>" +
 				    				
 
 				    				"<th></th>" +
@@ -112,8 +113,8 @@ var DishView = function (container, model, id) {
 			    			"<hr>" +
 			    			
 			    			"<div id=\"ConfirmButtonBox\">" +
-							"<a class=\"btn-group btn-group-md\" role=\"group\" id=\"ConfirmDish\">" +
-							"<type=\"button\" class=\"btn btn-default btn-custom\"> Confirm Dish </button>" +
+							"<a class=\"btn-group btn-group-md\" role=\"group\" id=\"DishConfirmDish\">" +
+							"<type=\"button\" class=\"btn btn-default btn-custom ConfirmDishButton\"> Confirm Dish </button>" +
 							"</a>" +
 							"</div>" +
    
@@ -183,7 +184,7 @@ var DishView = function (container, model, id) {
 
 		if (arg === "guests") {
 
-				
+				dish = model.getDish(model.currentID);
 				
 				DishViewContainerString = [];
 				DishViewContainer();
@@ -193,6 +194,32 @@ var DishView = function (container, model, id) {
 				DishViewMenuString = [];
 				IngredientLooper();
 				$("#DishViewMenu").html(DishViewMenuString);
+				self.ConfirmDishButton = $("#DishConfirmDish");
+
+
+
+
+
+
+
+			} else if (arg === "ID") {
+				// alert("sup");
+
+
+				
+				dish = model.getDish(model.currentID);
+				console.log(model.currentID);
+
+
+				DishViewContainerString = [];
+				DishViewContainer();
+				$("#DishViewContainer").html(DishViewContainerString);
+
+
+				DishViewMenuString = [];
+				IngredientLooper();
+				$("#DishViewMenu").html(DishViewMenuString);
+				
 
 
 
@@ -208,7 +235,12 @@ var DishView = function (container, model, id) {
 
 		$("#DishViewContainer").html(DishViewContainerString);
 		$("#DishViewMenu").html(DishViewMenuString);
-		this.BackToSelector = $("#DishBackToSelector");
+		this.DishConfirmDish = $(".DishBackToSelector");
+
+		//this.DishBackToSelector = $("#DishBackToSelector");
+		this.ConfirmDishButton = $(".ConfirmDishButton");
+
+		//this.ConfirmDishButton = document.getElementById("DishConfirmDish");
 		
 		console.log(DishViewContainerString);
 		console.log(DishViewMenuString);

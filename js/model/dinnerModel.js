@@ -1,8 +1,24 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
+
+	// this.currentDish = function (arg) {
+
+	// 	
+
+	// arg = id;
+	// return id;
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
+
+	// }
+
+
+	this.DishType = "main dish"
+	
+
+	this.currentID = 101;
+
 
 
 	this.ObserversArray = [];
@@ -27,6 +43,7 @@ var DinnerModel = function() {
 
 			
 			this.ObserversArray[i].update(arg);
+
 
 
 
@@ -295,16 +312,22 @@ this.getTotalDishPrice = function(id) {
 
 	
 	
+	alert("adddishfunc");
 
 
 
 		for (var j = 0; j < menu.length; j++) {
 			var obj = menu[j]
-			var duplicate = obj.id;
-		
-				if (duplicate === id) {
-					alert("duplicate");
-					menu.splice(obj, 2);
+			var remove = obj.id;
+			
+				
+				if (remove == id) {
+					
+					var removeItem = obj;
+					menu = jQuery.grep(menu, function(value) {
+						return value != removeItem;
+					});
+					// menu.splice(obj, 1);
 					
 					break;
 					
@@ -317,7 +340,7 @@ this.getTotalDishPrice = function(id) {
 		for(var i = 0; i < dishes.length; i++) {
 		    var obj = dishes[i];
 		    var DishID = obj.id;
-		 	if (DishID === id) {
+		 	if (DishID == id) {
 		 		alert("ADD")
 		 		
 		   			menu.push(obj);
@@ -330,6 +353,7 @@ this.getTotalDishPrice = function(id) {
 
 	
 	console.log(menu);
+	this.notifyObservers("AddItems");
 }
 
 		
@@ -337,15 +361,22 @@ this.getTotalDishPrice = function(id) {
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
+		
+		console.log(id);
 
 
 		for (var j = 0; j < menu.length; j++) {
 			var obj = menu[j]
 			var remove = obj.id;
+			
 				
-				if (remove === id) {
-					alert("remove");
-					menu.splice(obj, 2);
+				if (remove == id) {
+					
+					var removeItem = obj;
+					menu = jQuery.grep(menu, function(value) {
+						return value != removeItem;
+					});
+					// menu.splice(obj, 1);
 					
 					break;
 					
@@ -355,7 +386,8 @@ this.getTotalDishPrice = function(id) {
 			};
 
 
-			console.log(menu);
+		
+			this.notifyObservers("RemoveItems");
 		//TODO Lab 2
 	}
 	
@@ -365,7 +397,10 @@ this.getTotalDishPrice = function(id) {
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
 	this.getAllDishes = function (type,filter) {
+
+
 	  return $(dishes).filter(function(index,dish) {
+	  	
 		var found = true;
 		if(filter){
 			found = false;
@@ -377,19 +412,34 @@ this.getTotalDishPrice = function(id) {
 			if(dish.name.indexOf(filter) != -1)
 			{
 				found = true;
+
 			}
 		}
+
 	  	return dish.type == type && found;
+
+
 	  });	
+	  this.notifyObservers("TypeChange");
 	}
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
+
 	  for(key in dishes){
 			if(dishes[key].id == id) {
+				// this.notifyObservers("ID");
+				
 				return dishes[key];
+
+
 			}
+
+
 		}
+		
+
+		
 	}
 
 
@@ -402,7 +452,7 @@ this.getTotalDishPrice = function(id) {
 	// can sometimes be empty like in the example of eggs where
 	// you just say "5 eggs" and not "5 pieces of eggs" or anything else.
 	
-		// var menu = [{
+		//  var menu = [{
 		// 'id':101,
 		// 'name':'MD 2',
 		// 'type':'main dish',
@@ -421,6 +471,28 @@ this.getTotalDishPrice = function(id) {
 		// 	},{
 		// 	'name':'ingredient 3',
 		// 	'quantity':10,
+		// 	'unit':'ml',
+		// 	'price':4
+		// 	}]
+		// },{
+		// 'id':102,
+		// 'name':'MD 3',
+		// 'type':'main dish',
+		// 'image':'meatballs.jpg',
+		// 'description':"Here is how you make it... Lore ipsum...",
+		// 'ingredients':[{ 
+		// 	'name':'ingredient 1',
+		// 	'quantity':2,
+		// 	'unit':'pieces',
+		// 	'price':8
+		// 	},{
+		// 	'name':'ingredient 2',
+		// 	'quantity':10,
+		// 	'unit':'g',
+		// 	'price':7
+		// 	},{
+		// 	'name':'ingredient 3',
+		// 	'quantity':5,
 		// 	'unit':'ml',
 		// 	'price':4
 		// 	}]
@@ -495,48 +567,10 @@ this.getTotalDishPrice = function(id) {
 			}]
 		}
 
-		,{
-		'id':202,
-		'name':'Strawberry',
-		'type':'dessert',
-		'image':'icecream.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
-			'name':'ice cream',
-			'quantity':100,
-			'unit':'ml',
-			'price':6
-			}]
-		}
-
-		,{
-		'id':202,
-		'name':'Strawberry',
-		'type':'dessert',
-		'image':'icecream.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
-			'name':'ice cream',
-			'quantity':100,
-			'unit':'ml',
-			'price':6
-			}]
-		},{
-		'id':202,
-		'name':'Strawberry',
-		'type':'dessert',
-		'image':'icecream.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
-			'name':'ice cream',
-			'quantity':100,
-			'unit':'ml',
-			'price':6
-			}]
-		}
+		
 	];
 
-	var numberOfGuests = 7;
+	var numberOfGuests = 1;
 	
 	
 	var dishes = [{

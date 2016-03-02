@@ -1,5 +1,5 @@
 var SideBarView = function (container, model) {
-
+	self = this;
 	
 	this.container = container;
 	model.addObserver(this);
@@ -32,7 +32,7 @@ var SideBarView = function (container, model) {
 		
 
 				SideBarItemsString +=	"<tr>" +
-								"<td>" + "<a class=\"btn btn-default btn-group-xs glyphicon glyphicon-remove\" href=\"#\" id=\"" + "RemoveDish" + id + "\"></a>" + "</td>" +
+								"<td>" + "<a class=\"btn btn-default btn-group-xs glyphicon glyphicon-remove RemoveButton\" id=\"" + "RemoveDish" + id + "\"></a>" + "</td>" +
 								"<td>"  + self.name + "</td>" +
 								"<td>" + model.getTotalDishPrice(id); +  "</td>" +
 
@@ -138,6 +138,39 @@ var SideBarView = function (container, model) {
 
 
 
+			} else if (arg === "AddItems") {
+
+				alert("AddItems");
+
+				FullMenu = model.getFullMenu();
+				console.log(FullMenu);
+
+				SideBarItemsString = [];
+				DishLooper();
+				$("#SideBarItems").html(SideBarItemsString);
+				self.ConfirmButton = $("#ConfirmButton");
+
+
+
+
+
+
+			} else if (arg === "RemoveItems") {
+
+
+				alert("removing")
+
+				FullMenu = model.getFullMenu();
+				console.log(FullMenu);
+
+				SideBarItemsString = [];
+				DishLooper();
+				$("#SideBarItems").html(SideBarItemsString);
+				// self.RemoveButton = $(".RemoveButton");
+				console.log(self.RemoveButton)
+
+
+
 			}
 
 
@@ -156,10 +189,13 @@ var SideBarView = function (container, model) {
 
 		console.log(this.SidebarConfirmDinner)
 		
-		
-		this.ConfirmButton = $("#ConfirmButton");
+		this.RemoveButton = $(".RemoveButton");
+
+		this.ConfirmButton = $(".ConfirmButton");
 		this.minusGuest = $("#minusGuest");
 		this.plusGuest = $("#plusGuest");
+		
+
 		
  
 	

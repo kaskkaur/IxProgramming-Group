@@ -124,9 +124,9 @@ var OverviewDishesLooper = function () {
 							"<div class=\"panel panel-warning\">"+
 					  			"<div class=\"panel-heading\">"+ DinnerList[i].name +
 
-					  			"<span><button class=\"button button-default glyphicon glyphicon-plus AddButton\"></button></span>"+
+					  			// "<span><button class=\"button button-default glyphicon glyphicon-plus AddButton\"></button></span>"+
 					  			
-					  			"<span><button class=\"button button-default glyphicon glyphicon glyphicon-th-list AddButton\"></button></span>"+
+					  			// "<span><button class=\"button button-default glyphicon glyphicon glyphicon-th-list AddButton\"></button></span>"+
 
 
 					  			"</div>"+
@@ -225,13 +225,6 @@ var OverviewDishesLooper = function () {
 				
 				
 
-			
-
-
-
-
-
-			
 
 
 		}
