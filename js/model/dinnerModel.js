@@ -415,12 +415,12 @@ this.getTotalDishPrice = function(id) {
 
 			}
 		}
-
+		// model.notifyObservers("TypeChange");
 	  	return dish.type == type && found;
 
 
 	  });	
-	  this.notifyObservers("TypeChange");
+	  // this.notifyObservers("TypeChange");
 	}
 
 	//function that returns a dish of specific ID

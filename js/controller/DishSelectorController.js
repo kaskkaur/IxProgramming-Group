@@ -2,7 +2,9 @@ var DishSelectorController = function (view, model) {
 
 
 
-		view.DishInfoButton.click(function(){
+		$("#DishSelectorContainer").on("click", ".DishInfoButton", function () {
+
+			// view.DishInfoButton
 
 			
 	     	var id = this.id;
@@ -36,9 +38,9 @@ var DishSelectorController = function (view, model) {
 			// view.update(value);
 
 			model.DishType = value;
-			//model.getAllDishes(value);
+			model.getAllDishes(value);
 			console.log(model.DishType);
-			model.notifyObservers("TypeChange");
+			
 
 
 
