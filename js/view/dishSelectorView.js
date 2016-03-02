@@ -10,7 +10,7 @@ var DishSelectorView = function (container, model) {
 	var SelectorContainerString ="";
 	var SelectorFilterString ="";
 	// var type = "main dish"
-	var FoodList = model.getAllDishes(model.DishType);
+	var FoodList = model.getAllDishes("main dish");
 	//console.log(SelectorDishes);
 	
 
@@ -32,8 +32,8 @@ var DishSelectorView = function (container, model) {
 						
 						  "<div class=\"col-sm-6\">" +
 						    "<div class=\"input-group\">" +
-						      "<input type=\"text\" class=\"form-control\" placeholder=\"Enter keywords..\">" +
-						      "<span class=\"input-group-btn\">" +
+						      "<input id=\"FilterSearch\" type=\"text\" class=\"form-control\" placeholder=\"Enter keywords..\">" +
+						      "<span  class=\"input-group-btn\">" +
 						        "<button class=\"btn btn-default\" type=\"button\">" +
 						        	"<span class=\"glyphicon glyphicon-search\" aria-hidden=\"true\"></span>" + 
 
@@ -124,6 +124,17 @@ var SelectorDishesLoop = function() {
 		$("#SelectorDishes").html(SelectorDishesString);
 
 
+		} else if (arg == "SearchInput") {
+
+
+			FoodList = model.getAllDishes(model.DishType, model.SearchString);
+
+			SelectorDishesString = [];
+			SelectorDishesLoop();
+			$("#SelectorDishes").html(SelectorDishesString);
+
+
+
 		}
 
 
@@ -151,6 +162,7 @@ var SelectorDishesLoop = function() {
 
 	this.DishInfoButton = $(".DishInfoButton");
 	this.FilterMenu = $("#FilterMenu");
+	// this.FilterSearch = $("#FilterSearch");
 
 
 	// this.DishInfoButton = $("#AddDish100");

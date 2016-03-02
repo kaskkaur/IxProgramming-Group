@@ -203,7 +203,7 @@ var OverviewDishesLooper = function () {
 				$("#OverviewDishes").html(OverviewDishesString);
 
 
-				console.log(OverviewDishesString);
+				// console.log(OverviewDishesString);
 
 				$("#OverviewMenuTotal").val(model.getTotalMenuPrice());
 
@@ -220,10 +220,41 @@ var OverviewDishesLooper = function () {
 
 
 
-			} 
+			} else if (arg === "AddItems") {
+
+				// alert("AddDishOVERVIEW")
+
+				DinnerList = model.getFullMenu();
+				console.log(DinnerList);
+
+				OverviewDishesString = [];
+				OverviewDishesLooper();
+				
+				$("#OverviewDishes").html(OverviewDishesString);
 
 				
-				
+				$("#OverviewMenuTotal").val(model.getTotalMenuPrice());
+
+
+
+
+
+
+			} else if (arg === "RemoveItems") {
+
+				// alert("RemoveDishhOVERVIEW")
+
+				DinnerList = model.getFullMenu();
+
+				OverviewDishesString = [];
+				OverviewDishesLooper();
+				$("#OverviewDishes").html(OverviewDishesString);
+				$("#OverviewMenuTotal").val(model.getTotalMenuPrice());
+
+
+
+			}
+	
 
 
 

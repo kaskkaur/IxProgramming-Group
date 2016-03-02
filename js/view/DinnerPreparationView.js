@@ -63,7 +63,7 @@ var DinnerPreparationView = function (container, model) {
 
 
 
-
+var PreparationLooper = function() {
 
 	for (var i = 0; i < DinnerPrepList.length; i++) {
 		console.log(DinnerPrepList[i].name);
@@ -105,6 +105,13 @@ var DinnerPreparationView = function (container, model) {
 
 
 	};
+
+
+	}
+
+	PreparationLooper();
+	
+
 	this.update = function(arg) {
 
 		if (arg === "guests") {
@@ -116,13 +123,47 @@ var DinnerPreparationView = function (container, model) {
 
 			$("#GuestNumberPrep").html(model.getNumberOfGuests());
 
-		}
+		} else if (arg === "AddItems") {
+
+				// alert("AddDishPREP")
+
+				DinnerPrepList = model.getFullMenu();
+				// console.log(DinnerList);
+
+				PreparationItemsString = [];
+				PreparationLooper();
+
+				$("#PreparationItems").html(PreparationItemsString);
+				$("#MenuTotal").val(model.getTotalMenuPrice()); 
+				
+				
+
+
+
+
+
+			} else if (arg === "RemoveItems") {
+
+				// alert("RemoveDishhPREP")
+
+				DinnerPrepList = model.getFullMenu();
+
+				PreparationItemsString = [];
+				PreparationLooper();
+
+				$("#PreparationItems").html(PreparationItemsString);
+				$("#MenuTotal").val(model.getTotalMenuPrice()); 
+				
+
+
+
+			}
 
 
 			
 
 
-		}
+	}
 
 
 		// this.update = function(arg) {

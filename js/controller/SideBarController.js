@@ -7,7 +7,7 @@ var SideBarController = function(view, model) {
 
 	view.plusGuest.click(function() {
 
-		model.setNumberOfGuests(1);
+		model.setNumberOfGuests(model.getNumberOfGuests() + 1);
 
 
 	});
@@ -15,7 +15,7 @@ var SideBarController = function(view, model) {
 
 	view.minusGuest.click(function() {
 
-		model.setNumberOfGuests(0);
+		model.setNumberOfGuests(model.getNumberOfGuests() - 1);
 
 
 	});
@@ -39,7 +39,7 @@ var SideBarController = function(view, model) {
 
 	$("#SideBar").on("click", ".RemoveButton", function () {
 
-		alert("RemoveButtonController")
+		// alert("RemoveButtonController")
 
 		id = this.id;
 		dishID = id.substr(10).trim();

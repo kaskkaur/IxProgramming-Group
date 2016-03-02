@@ -5,17 +5,22 @@ var DishSelectorController = function (view, model) {
 		$("#DishSelectorContainer").on("click", ".DishInfoButton", function () {
 
 			// view.DishInfoButton
-
+			// alert("SAPselector");
 			
 	     	var id = this.id;
 		
 			model.currentID = id;
+			// alert("SAPselector");
+			
 
-			console.log(model.currentID);
-			model.notifyObservers("ID");
 
 
-	
+			console.log(model.currentID + "thisIsThecurrentID");
+			// model.notifyObservers("ID");
+
+			
+
+		model.getDishID();
 
 		stateController.dishView.container.show();
 		
@@ -33,34 +38,37 @@ var DishSelectorController = function (view, model) {
 			//alert("sap");
 
 
-			value = view.FilterMenu.val()
+			arg = view.FilterMenu.val()
 
 			// view.update(value);
 
-			model.DishType = value;
-			model.getAllDishes(value);
-			console.log(model.DishType);
-			
+			model.DishType = arg;
+			// model.getAllDishes(value);
+			model.getDishType();			
 
 
 
 		});
 
-		// view.FilterSearch.change(function() {
-		// 	// alert("sap");
+		
+		$("#FilterSearch").on("keyup",  function() {
+			// alert("enterSearch");
 
-		// 	value = view.FilterSearch.val()
+			value = $(this).val()
+			console.log(value);
 
-		// 	// view.update(value);
+			// view.update(value);
 
-		// 	model.DishType = value;
+			model.SearchString = value;
+			model.getSearchString();
 
-		// 	console.log(model.DishType);
-		// 	model.notifyObservers("TypeChange");
+			console.log(model.SearchString);
+			
 
 
 
-		// });
+
+		});
 
 	
 

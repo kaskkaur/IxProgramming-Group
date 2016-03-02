@@ -1,6 +1,8 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
 
+	self = this;
+
 	// this.currentDish = function (arg) {
 
 	// 	
@@ -13,11 +15,43 @@ var DinnerModel = function() {
 
 	// }
 
-
-	this.DishType = "main dish"
-	
+	DishType = "main dish";
 
 	this.currentID = 101;
+
+	this.SearchString = "";
+
+
+	this.getSearchString = function () {
+
+		this.notifyObservers("SearchInput");
+
+
+	}
+	
+
+	this.getDishID = function() {
+	
+	this.notifyObservers("ID");
+	
+	
+
+	}
+
+
+
+	this.getDishType = function() {
+	
+	this.notifyObservers("TypeChange");
+	
+	return DishType;
+	
+
+
+	}
+	
+
+	
 
 
 
@@ -54,83 +88,9 @@ var DinnerModel = function() {
 
 
 	this.setNumberOfGuests = function(num) {
-		//console.log(numberOfGuests);
-		
+		numberOfGuests = num;
 
-
-		//   alert('SETnumberofGuests func initiated');
-
-
-
-		// $(".button-increment").on("click", function() { // + - are part of the increment class
-
-
-		  
-		//   var $button = $(this);
-		//   var oldValue = numberOfGuests; // declare oldvalue to be the numberofguests, which sits in the model
-
-		//   if ($button.is("#plusGuest")) {
-		// 	  var newVal = oldValue + 1;
-		// 	  numberOfGuests = newVal; // update the number of guests variable in the model
-			  
-			  
-		// 	} else {
-		//    // no negative values
-		//     if (oldValue > 0) {
-		//       var newVal = oldValue - 1;
-		//       //numberOfGuests = newVal;
-		//       numberOfGuests = newVal;
-		      
-		      
-		      
-		//     } else {
-		//       newVal = 0;
-		//       //numberOfGuests = newVal;
-		//       numberOfGuests = newVal;
-		      
-		//     }
-		   
-
-		//   }		  
-		   	
-		//     console.log(numberOfGuests);
-		  
-		//   $("#GuestsNumber").val(newVal);
-
-
-		
-
-		// });
 		this.notifyObservers("guests");
-
-		var oldValue = numberOfGuests;
-		if (num === 1) {
-
-			var newVal = oldValue + 1;
-			numberOfGuests = newVal;
-
-
-
-			} else {
-		   // no negative values
-		    if (oldValue > 0) {
-		      var newVal = oldValue - 1;
-		      
-		      numberOfGuests = newVal;
-		      
-		    } else {
-		      newVal = 0;
-		     
-		      numberOfGuests = newVal;
-		      
-		    }
-
-		};
-
-
-
-		
-
 
 
 
@@ -312,7 +272,7 @@ this.getTotalDishPrice = function(id) {
 
 	
 	
-	alert("adddishfunc");
+	// alert("adddishfunc");
 
 
 
@@ -341,7 +301,7 @@ this.getTotalDishPrice = function(id) {
 		    var obj = dishes[i];
 		    var DishID = obj.id;
 		 	if (DishID == id) {
-		 		alert("ADD")
+		 		// alert("ADD")
 		 		
 		   			menu.push(obj);
 		   			break;
@@ -400,7 +360,7 @@ this.getTotalDishPrice = function(id) {
 
 
 	  return $(dishes).filter(function(index,dish) {
-	  	
+
 		var found = true;
 		if(filter){
 			found = false;
@@ -497,80 +457,80 @@ this.getTotalDishPrice = function(id) {
 		// 	'price':4
 		// 	}]
 		// }];
-	var menu = [{
-		'id':101,
-		'name':'MD 2',
-		'type':'main dish',
-		'image':'bakedbrie.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
-			'name':'ingredient 1',
-			'quantity':1,
-			'unit':'pieces',
-			'price':8
-			},{
-			'name':'ingredient 2',
-			'quantity':15,
-			'unit':'g',
-			'price':7
-			},{
-			'name':'ingredient 3',
-			'quantity':10,
-			'unit':'ml',
-			'price':4
-			}]
-		},{
-		'id':102,
-		'name':'MD 3',
-		'type':'main dish',
-		'image':'meatballs.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
-			'name':'ingredient 1',
-			'quantity':2,
-			'unit':'pieces',
-			'price':8
-			},{
-			'name':'ingredient 2',
-			'quantity':10,
-			'unit':'g',
-			'price':7
-			},{
-			'name':'ingredient 3',
-			'quantity':5,
-			'unit':'ml',
-			'price':4
-			}]
-		},{
-		'id':201,
-		'name':'Vanilla Ice cream',
-		'type':'dessert',
-		'image':'icecream.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
-			'name':'ice cream',
-			'quantity':100,
-			'unit':'ml',
-			'price':6
-			}]
-		},{
-		'id':202,
-		'name':'Strawberry',
-		'type':'dessert',
-		'image':'icecream.jpg',
-		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
-			'name':'ice cream',
-			'quantity':100,
-			'unit':'ml',
-			'price':6
-			}]
-		}
+	var menu = [
+	// 	'id':101,
+	// 	'name':'MD 2',
+	// 	'type':'main dish',
+	// 	'image':'bakedbrie.jpg',
+	// 	'description':"Here is how you make it... Lore ipsum...",
+	// 	'ingredients':[{ 
+	// 		'name':'ingredient 1',
+	// 		'quantity':1,
+	// 		'unit':'pieces',
+	// 		'price':8
+	// 		},{
+	// 		'name':'ingredient 2',
+	// 		'quantity':15,
+	// 		'unit':'g',
+	// 		'price':7
+	// 		},{
+	// 		'name':'ingredient 3',
+	// 		'quantity':10,
+	// 		'unit':'ml',
+	// 		'price':4
+	// 		}]
+	// 	},{
+	// 	'id':102,
+	// 	'name':'MD 3',
+	// 	'type':'main dish',
+	// 	'image':'meatballs.jpg',
+	// 	'description':"Here is how you make it... Lore ipsum...",
+	// 	'ingredients':[{ 
+	// 		'name':'ingredient 1',
+	// 		'quantity':2,
+	// 		'unit':'pieces',
+	// 		'price':8
+	// 		},{
+	// 		'name':'ingredient 2',
+	// 		'quantity':10,
+	// 		'unit':'g',
+	// 		'price':7
+	// 		},{
+	// 		'name':'ingredient 3',
+	// 		'quantity':5,
+	// 		'unit':'ml',
+	// 		'price':4
+	// 		}]
+	// 	},{
+	// 	'id':201,
+	// 	'name':'Vanilla Ice cream',
+	// 	'type':'dessert',
+	// 	'image':'icecream.jpg',
+	// 	'description':"Here is how you make it... Lore ipsum...",
+	// 	'ingredients':[{ 
+	// 		'name':'ice cream',
+	// 		'quantity':100,
+	// 		'unit':'ml',
+	// 		'price':6
+	// 		}]
+	// 	},{
+	// 	'id':202,
+	// 	'name':'Strawberry',
+	// 	'type':'dessert',
+	// 	'image':'icecream.jpg',
+	// 	'description':"Here is how you make it... Lore ipsum...",
+	// 	'ingredients':[{ 
+	// 		'name':'ice cream',
+	// 		'quantity':100,
+	// 		'unit':'ml',
+	// 		'price':6
+	// 		}]
+	// 	}
 
 		
 	];
 
-	var numberOfGuests = 1;
+	numberOfGuests = 1;
 	
 	
 	var dishes = [{

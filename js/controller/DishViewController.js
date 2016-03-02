@@ -3,32 +3,37 @@ var DishViewController = function(view, model) {
 
 	
 	
+	$("#DishViewContainer").on("click", "#DishBackToSelector", function () {
 
-
-	DishConfirmDish.onclick = function(){
-
-		alert("sapcontrol");
-			
-
-			model.addDishToMenu(model.currentID)
-
-			
-
-			};
-
-	
-
-
-		DishBackToSelector.onclick = function() {
-
-			alert("sap");
-		
+		// alert("GoBackToSelector");
 
 		stateController.dishView.container.hide();
 		stateController.sideBarView.container.show();
 		stateController.dishSelectorView.container.show();
 
-	}
+			
+			
+
+			});
+
+	
+
+
+		$("#DishViewContainer").on("click", "#DishConfirmDish", function () {
+
+
+			// alert("ControllerAddedDIshTOMenu");
+			
+
+			model.addDishToMenu(model.currentID)
+
+
+			
+		
+
+		
+
+	});
 
 
 	// $("#DishBackToSelector").on( "click", function() {

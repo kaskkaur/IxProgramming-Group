@@ -222,9 +222,6 @@ var DishView = function (container, model, id) {
 				
 
 
-
-
-
 			}
 
 		

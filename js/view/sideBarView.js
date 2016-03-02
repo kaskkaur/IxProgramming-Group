@@ -140,7 +140,8 @@ var SideBarView = function (container, model) {
 
 			} else if (arg === "AddItems") {
 
-				alert("AddItems");
+				// alert("AddItems");
+				$("#MenuTotal").val(model.getTotalMenuPrice());
 
 				FullMenu = model.getFullMenu();
 				console.log(FullMenu);
@@ -148,7 +149,7 @@ var SideBarView = function (container, model) {
 				SideBarItemsString = [];
 				DishLooper();
 				$("#SideBarItems").html(SideBarItemsString);
-				self.ConfirmButton = $("#ConfirmButton");
+				// self.ConfirmButton = $("#ConfirmButton");
 
 
 
@@ -158,9 +159,11 @@ var SideBarView = function (container, model) {
 			} else if (arg === "RemoveItems") {
 
 
-				alert("removing")
+				// alert("removing")
+				$("#MenuTotal").val(model.getTotalMenuPrice());
 
 				FullMenu = model.getFullMenu();
+				
 				console.log(FullMenu);
 
 				SideBarItemsString = [];
