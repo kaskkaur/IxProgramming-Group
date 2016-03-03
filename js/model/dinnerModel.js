@@ -358,6 +358,24 @@ this.getTotalDishPrice = function(id) {
 	//if you don't pass any filter all the dishes will be returned
 	this.getAllDishes = function (type,filter) {
 
+		var apiKey = "H9n1zb6es492fj87OxDtZM9s5sb29rW3";
+
+		var dishesAPI = "http://api.bigoven.com/recipes?" + "api_key="+ apiKey;
+		$.ajax({
+		         type: "GET",
+		         dataType: 'json',
+		         cache: false,
+		         url: url,
+		         success: function (data) {
+		            alert('success');
+		            //console.log(data);
+		            }
+		         });
+		       }
+
+
+
+
 
 	  return $(dishes).filter(function(index,dish) {
 

@@ -4,22 +4,14 @@ var DinnerOverview = function (container, model) {
 	model.addObserver(this);
 	this.container = container;
 	
-
 	var DinnerList = model.getFullMenu();
 	var GuestNumber = model.getNumberOfGuests();
-	// var TotalDishPrice = model.getTotalDishPrice();
-	
-
 
 	
 	var OverviewDishesString = "";
 	var OverviewConfirmString="";
 	var OverviewTopPanelString ="";
 	var OverviewContainerString ="";
-
-
-
-
 
 
 	OverviewContainerString +=  "<div class=\"container homelette\">" +
@@ -61,15 +53,6 @@ var DinnerOverview = function (container, model) {
 							"</div>" +
 
 						
-								
-
-
-
-
-
-						
-
-						
 
 						"<div class=\"col-sm-2 PrintButton center-block\">" +
 					
@@ -102,11 +85,6 @@ var DinnerOverview = function (container, model) {
 						"</div>" +
 
 						"</div>" +
-
-
-
-							
-
 
 								
 
@@ -155,43 +133,13 @@ var OverviewDishesLooper = function () {
 			    			"<br>"+
 			    			"</div>"
 
-			// 	"<div class=\"row\">" +
-						
-						
-			// 		"<div class=\"col-md-6 text-right center-block pull-right\">" +
-
-
-						
-			// 			"<div class=\"input-group overview-input text-right\" style=\"width: 200px;\" id=\"OverviewTotal\">" +
-			// 				   "<span class=\"TotalColor input-group-addon\" id=\" \">" +"Total" +"</span>"+
-			// 				 " <input id=\"OverviewMenuTotal\" type=\"text\" class=\"form-control\" aria-label=\"Amount\" readonly value=\"892\">" +
-			// 				   "<span class=\"TotalColor input-group-addon\"id=\" \" >" +"SEK"+"</span>" +
-			// 			"</div>" +
-						
-			// 		"</div>" +
-					
-				
-			// "</div>"
-
-
-				// "<div class=\"row\">"+
-				// 	"<div class=\"container\">"+
-				//     		"<div class=\"col-sm-6 PrintFullRecipe\"> "+
-				// 			"<a id=\"PrintFullRecipe\" name=\"singlebutton\" class=\"btn btn-primary btn-custom PrintFullRecipe\" >" +"Print full recipe!"+"</a> "+
-				// 			"</div>"+
-				// 		"</div>"+
-				// "</div>"+
-				// "</div>"
-
-
-
 
 	this.update = function(arg) {
 
 
 		if (arg === "guests") {
 
-			//alert("sup");
+			
 
 
 				
@@ -202,27 +150,12 @@ var OverviewDishesLooper = function () {
 				OverviewDishesLooper();
 				$("#OverviewDishes").html(OverviewDishesString);
 
-
-				// console.log(OverviewDishesString);
-
 				$("#OverviewMenuTotal").val(model.getTotalMenuPrice());
-
-				// alert("SUP");
-
-				
-
-				// $("#numberOfGuests").val(model.getNumberOfGuests());
-				// $("#MenuTotal").val(model.getTotalMenuPrice());
-				
-				// S
-				// DishLooper();
-				// $("#SideBarItems").html(SideBarItemsString);
 
 
 
 			} else if (arg === "AddItems") {
 
-				// alert("AddDishOVERVIEW")
 
 				DinnerList = model.getFullMenu();
 				console.log(DinnerList);
@@ -242,7 +175,6 @@ var OverviewDishesLooper = function () {
 
 			} else if (arg === "RemoveItems") {
 
-				// alert("RemoveDishhOVERVIEW")
 
 				DinnerList = model.getFullMenu();
 
@@ -251,12 +183,7 @@ var OverviewDishesLooper = function () {
 				$("#OverviewDishes").html(OverviewDishesString);
 				$("#OverviewMenuTotal").val(model.getTotalMenuPrice());
 
-
-
 			}
-	
-
-
 
 		}
 
@@ -283,10 +210,6 @@ var OverviewDishesLooper = function () {
 	$("#GuestNumber").html(model.getNumberOfGuests());
 
 	
-	
-
-
-
 
 }
 
