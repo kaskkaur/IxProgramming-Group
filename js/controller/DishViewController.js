@@ -1,7 +1,27 @@
 var DishViewController = function(view, model) {
-	console.log(DishBackToSelector)
+	// console.log(DishBackToSelector)
 
-	
+
+	//Spinner ajax routine for Dish View
+	$(document).ajaxStart(function () {
+				// alert("ajaxstart");''
+				
+				$("#Meatballs").hide();
+				$(".selector-ingredients").hide();
+				
+		       	$(".spinner").fadeIn("fast");
+		        
+		        
+		        
+		    }).ajaxStop(function () {
+
+		    	$(".spinner").fadeOut("fast");
+
+		        $("#Meatballs").show();
+		        $(".selector-ingredients").show();
+
+	});
+
 	
 	$("#DishViewContainer").on("click", "#DishBackToSelector", function () {
 
@@ -12,47 +32,18 @@ var DishViewController = function(view, model) {
 		stateController.dishSelectorView.container.show();
 
 			
-			
 
-			});
+	});
 
-	
-
-
-		$("#DishViewContainer").on("click", "#DishConfirmDish", function () {
-
-
-			// alert("ControllerAddedDIshTOMenu");
-			
+	$("#DishViewContainer").on("click", "#DishConfirmDish", function () {
 
 			model.addDishToMenu(model.currentID)
 
 
-			
-		
-
-		
-
 	});
 
 
-	// $("#DishBackToSelector").on( "click", function() {
-
-
-	// 			alert("onclickjquery");
-		
-
-	// 	stateController.dishView.container.hide();
-	// 	stateController.sideBarView.container.show();
-	// 	stateController.dishSelectorView.container.show();
-
-
-
-
-
-	// });
-
-
+	
 	
 
 

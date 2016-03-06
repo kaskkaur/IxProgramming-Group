@@ -37,22 +37,6 @@ var StateController = function(model) {
 
 
 
-
-	// this.changeMainView = function (view, viewController) {
-
-		
-	// 	this.currentMainView = view;
-	// 	this.currentmaiconroller = viewcontroller;
-
-
-
-	// 	this.currentMainView.container.empty();
-		
-
-
-	// }
-
-
 }
 
 

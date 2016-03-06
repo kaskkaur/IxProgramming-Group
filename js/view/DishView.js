@@ -15,11 +15,14 @@ var DishView = function (container, model, id) {
 	//var DishTotal = model.getTotalDishPrice(1);
 
 	// var dishID = model.currentID;
-	var dish = model.getDish(model.currentID);
+	// var dish = model.getDishData(model.currentID);
+	var dish = [];
+
 	//var DishViewGuests = model.getNumberOfGuests();
-	var DishViewContainerString = ""
-	var DishViewMenuString = ""
+	var DishViewContainerString = "";
+	var DishViewMenuString = "";
 	console.log(dish);
+	SpinnerString = "";
 
 
 
@@ -33,7 +36,10 @@ var DishView = function (container, model, id) {
 	// 				});
 	// 			});
 
-
+	SpinnerString += 
+		"<div class=\"spinner\">" +
+	    "<img src=\"images/ajax-loader.gif\" alt=\"Loading...\"/>" +
+		"</div>" 
 
 	var DishViewContainer = function () {	
 
@@ -43,17 +49,23 @@ var DishView = function (container, model, id) {
 			    "<div class=\"container\">" +
 
 			    	"<div class=\"row\">" +
-
+			    	"<div class=\"DishSpinner\"></div>" +
 
 			    	 "<div class=\"col-sm-6 selector-method DishInfo\" id=\"Meatballs\">" +
 
-						 	"<h2>" + dish.name + "</h2>" +
-						 	"<img src=\"images/" + dish.image + "\"></img>" +
-						 	"<p>" + dish.description + "</p>" +
+						 	"<h2>" + dish.Title + "</h2>" +
+						 	"<img class=\"img-thumbnail\" width=\"250\" height=\"250\" src=\"" + dish.ImageURL + "\"></img>" +
+
+						 	"<p>" + dish.Description + "</p>" +
+						 	"<h3>" + "Instructions" + "</h3>" +
+						 	"<h4>" + "Total preparation time:" + " " + dish.TotalMinutes  + " " + "minutes" + "</h4>" +
+						 	"<p>" + dish.Instructions + "</p>" +
+
+
+
 
 						 
-							"<a class=\"btn btn-group btn-group-md\" role=\"group\" id=\"DishBackToSelector\">" +
-							"<type=\"button\" class=\"btn btn-default btn-custom\"> Back to Select Dish </a>" +
+							
 							
 		
 			    	
@@ -62,8 +74,10 @@ var DishView = function (container, model, id) {
 
 
 			    		"<div class=\"col-sm-6 selector-ingredients\">" +
+			    			"<div class=\"col-sm-12\">" +
+
 			    			"<div class=\"col-sm-6\">" + 
-			    				"<h3>" + dish.name + " " + "for</h3>" +
+			    				"<h3>" + dish.Title + " " + "for</h3>" +
 
 			    			"</div>" +
 
@@ -73,22 +87,27 @@ var DishView = function (container, model, id) {
 			    				
 			    				"<span class=\"input-group\">" + 
 			    				"<br>" + 	
-										"<h3>" + model.getNumberOfGuests(model.currentID) +"</h3>" +
+								"<h3>" + model.getNumberOfGuests() + "</h3>" +
 
 								"</span>" +
 
 			    			"</div>" +
-			    			
-	
-						  	"<div class=\"recipe-lasagne\">" +
 
-				    			 "<table class=\"table table-hover\">" +
+			    			 "<table class=\"table table-hover \">" +
 				    			  
 				    				"<th>Amount</th>" +
 				    				"<th>Unit</th>" + 
 				    				"<th>Item</th>" +
 				    				"<th>Price</th>" + 
-				    			  "<table class=\"table table-hover\" id=\"DishViewMenu\">" +
+				    			"</table>" +
+
+			    			"</div>" +
+			    			
+	
+						  	"<div class=\"col-sm-12 recipe-DishView\">" +
+
+				    			
+				    			  "<table class=\"table table-hover recipe-DishView\" id=\"DishViewMenu\">" +
 
 				    			  "</table>" +
 
@@ -96,7 +115,7 @@ var DishView = function (container, model, id) {
 				    				"<th></th>" +
 				    				"<th></th>" +
 				    				"<th></th>" +
-				    				"<h3>Item total:" + "   " +  model.getTotalDishPrice(model.currentID)  + "  " + "SEK" +  "</h3>" +
+				    				
 				    				
 
 				    				"<th></th>" +
@@ -110,13 +129,23 @@ var DishView = function (container, model, id) {
 
 
 			    			"</div> <!-- end of lasagne recipe -->" +
-			    			"<hr>" +
-			    			
-			    			"<div id=\"ConfirmButtonBox\">" +
+
+			    			"<div class=\"col-sm-12\">" +
+			    			"<h3>Item total:" + "   " +  model.getTotalDishPriceView(id)   + "  " + "SEK" +  "</h3>" +
+
+			    			"<a class=\"btn btn-group btn-group-md\" role=\"group\" id=\"DishBackToSelector\">" +
+							"<type=\"button\" class=\"btn btn-default btn-custom\"> Back to Select Dish </a>" +
+
+							"<span id=\"ConfirmButtonBox\">" +
 							"<a class=\"btn-group btn-group-md\" role=\"group\" id=\"DishConfirmDish\">" +
-							"<type=\"button\" class=\"btn btn-default btn-custom ConfirmDishButton\"> Confirm Dish </button>" +
+							"<type=\"button\" class=\"btn btn-default btn-success ConfirmDishButton\"> Add to menu </button>" +
 							"</a>" +
-							"</div>" +
+							"</span>" +
+			    			"<hr>" +
+
+			    			"</div>" +
+			    			
+			    			
    
 						
 
@@ -153,45 +182,50 @@ var DishView = function (container, model, id) {
 
 		var IngredientLooper = function () {
 		
-		$.each(dish.ingredients, function (name, value) { 
+		$.each(dish.Ingredients, function (name, value) { 
 				self = this;
+				// alert("Are we looping Ingredients?")
 				// console.log(self);
 				// console.log(value.quantity);
+
 				
 		
 								DishViewMenuString += 	
 								"<tr>" +
-								"<td>" + model.getNumberOfGuests() * value.quantity + "</td>" +
-								"<td>" + value.unit +  "</td>" +
-								"<td>" + value.name +  "</td>" +
-								"<td>" + model.getNumberOfGuests() * value.price +  "</td>" +
+								"<td>" + model.getNumberOfGuests() * value.MetricDisplayQuantity + "</td>" +
+								"<td>" + value.MetricUnit +  "</td>" +
+								"<td>" + value.Name +  "</td>" +
+								"<td class=\"pull-left\">" + model.getNumberOfGuests() * model.price * value.MetricDisplayQuantity +  "</td>" +
+								"<td>"  + "  SEK " +  "</td>" +
 								"</tr>"
 
 
+									
 						
 				});
 
 		}
 
-		IngredientLooper();
+		// IngredientLooper();
 
+		
 
-
-	this.update = function(arg) {
+	this.update = function(arg, data) {
 
 		// console.log(arg)
 
 
 		if (arg === "guests") {
 
-				dish = model.getDish(model.currentID);
+				dish = model.DishDataArray;
+				console.log(data);
 				
-				DishViewContainerString = [];
+				DishViewContainerString = "";
 				DishViewContainer();
 				$("#DishViewContainer").html(DishViewContainerString);
 
 
-				DishViewMenuString = [];
+				DishViewMenuString = "";
 				IngredientLooper();
 				$("#DishViewMenu").html(DishViewMenuString);
 				self.ConfirmDishButton = $("#DishConfirmDish");
@@ -203,21 +237,27 @@ var DishView = function (container, model, id) {
 
 
 			} else if (arg === "ID") {
-				// alert("sup");
+				// alert("Update function dish is data");
 
-
+				model.DishDataArray = [];
+				model.DishDataArray = data;
+				dish =  model.DishDataArray;
 				
-				dish = model.getDish(model.currentID);
+				// model.getDish(model.currentID);
+
 				console.log(model.currentID);
 
 
-				DishViewContainerString = [];
+				DishViewContainerString = "";
 				DishViewContainer();
+				console.log(DishViewContainerString);
 				$("#DishViewContainer").html(DishViewContainerString);
+				$(".DishSpinner").html(SpinnerString);
 
 
-				DishViewMenuString = [];
+				DishViewMenuString = "";
 				IngredientLooper();
+
 				$("#DishViewMenu").html(DishViewMenuString);
 				
 
@@ -232,6 +272,7 @@ var DishView = function (container, model, id) {
 
 		$("#DishViewContainer").html(DishViewContainerString);
 		$("#DishViewMenu").html(DishViewMenuString);
+		$(".DishSpinner").html(SpinnerString);
 		this.DishConfirmDish = $(".DishBackToSelector");
 
 		//this.DishBackToSelector = $("#DishBackToSelector");
@@ -239,7 +280,7 @@ var DishView = function (container, model, id) {
 
 		//this.ConfirmDishButton = document.getElementById("DishConfirmDish");
 		
-		console.log(DishViewContainerString);
+		
 		console.log(DishViewMenuString);
 
 

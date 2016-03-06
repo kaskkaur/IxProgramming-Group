@@ -6,7 +6,7 @@ var DinnerPreparationView = function (container, model) {
 	
 	
 	
-	var DinnerPrepList = model.getFullMenu();	
+	var DinnerPrepList = [];
 	
 	var PreparationHeadString = "";
 	var PreparationViewContainerString ="";
@@ -66,7 +66,7 @@ var DinnerPreparationView = function (container, model) {
 var PreparationLooper = function() {
 
 	for (var i = 0; i < DinnerPrepList.length; i++) {
-		console.log(DinnerPrepList[i].name);
+		console.log(DinnerPrepList[i].Title);
 
 
 		
@@ -76,11 +76,11 @@ var PreparationLooper = function() {
 		PreparationItemsString +=  "<div class=\"preparation\"> "+
 						  "<div class=\"row \"> "+
 							
-							" <div class=\"col-lg-3\">"+
+							" <div class=\"col-sm-4\">"+
 									
 								"<div class=\"preparation-image\">" +
 									
-									"<img class=\"img-thumbnail\" src=\"images/" + DinnerPrepList[i].image+"\"></img>"+
+									"<img class=\"img-thumbnail\" width=\"100%\" height=\"100%\" src=\"" + DinnerPrepList[i].ImageURL + "\"></img>" +
 										
 								"</div>" +
 
@@ -88,10 +88,10 @@ var PreparationLooper = function() {
 										
 							"</div>"+
 
-								"<div class=\"col-lg-3\">"+
+								"<div class=\"col-sm-8\">"+
 
 									"<div class=\"preparation-image\">"+
-									"<h3>"+ DinnerPrepList[i].name + "</h3>" + DinnerPrepList[i].description +
+									"<h3>"+ DinnerPrepList[i].Title + "</h3>" + DinnerPrepList[i].Instructions +
 
 									
 								"</div>" +
@@ -109,7 +109,7 @@ var PreparationLooper = function() {
 
 	}
 
-	PreparationLooper();
+	// PreparationLooper();
 	
 
 	this.update = function(arg) {
@@ -126,6 +126,7 @@ var PreparationLooper = function() {
 		} else if (arg === "AddItems") {
 
 				// alert("AddDishPREP")
+				console.log(model.getFullMenu());
 
 				DinnerPrepList = model.getFullMenu();
 				// console.log(DinnerList);

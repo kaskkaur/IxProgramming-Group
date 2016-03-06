@@ -43,7 +43,7 @@ var SideBarController = function(view, model) {
 
 		id = this.id;
 		dishID = id.substr(10).trim();
-		// console.log(dishID)
+		console.log(dishID)
 
 		model.removeDishFromMenu(dishID);
 		// console.log(model.getFullMenu());

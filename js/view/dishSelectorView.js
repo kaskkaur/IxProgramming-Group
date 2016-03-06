@@ -10,14 +10,48 @@ var DishSelectorView = function (container, model) {
 	var SelectorContainerString ="";
 	var SelectorFilterString ="";
 	// var type = "main dish"
-	var FoodList = model.getAllDishes("main dish");
+	var FoodList = model.getAllDishes("All");
+	var SpinnerString = "";
+
+	
+	// this.updateInitial = function (arg, data) {
+	// 	if (arg == "ID") {
+
+	// 		FoodList = data;
+
+	// 	};
+	// }
+
+	// 
 	//console.log(SelectorDishes);
 	
-
+	SpinnerString += 
+		"<div class=\"spinner\">" +
+	    "<img src=\"images/ajax-loader.gif\" alt=\"Loading...\"/>" +
+		"</div>" 
 
 	SelectorContainerString += "<div id=\"\" class=\"col-sm-8 selector\"> <!-- whole selector area -->" + 
 
-	"<div id=\"SelectorFilter\"></div>" + "<div id=\"SelectorDishes\"></div>" +
+
+	
+	"<div id=\"SelectorFilter\"></div>" + 
+
+	"<div class=\"SelectorSpinner\"></div>" +
+
+	
+
+	"<div id=\"SelectorDishes\"></div>" +
+
+	
+
+	
+
+	
+
+		
+
+
+	
 
 	    	
 
@@ -34,7 +68,7 @@ var DishSelectorView = function (container, model) {
 						    "<div class=\"input-group\">" +
 						      "<input id=\"FilterSearch\" type=\"text\" class=\"form-control\" placeholder=\"Enter keywords..\">" +
 						      "<span  class=\"input-group-btn\">" +
-						        "<button class=\"btn btn-default\" type=\"button\">" +
+						        "<button id=\"SearchButton\" class=\"btn btn-default\" type=\"button\">" +
 						        	"<span class=\"glyphicon glyphicon-search\" aria-hidden=\"true\"></span>" + 
 
 						        "</button>" +
@@ -46,11 +80,12 @@ var DishSelectorView = function (container, model) {
 			    	"<div class=\"col-sm-6\">" +
 
 			    		"<select id=\"FilterMenu\" class=\"form-control\">" +
-					    "<option value=\"main dish\">Main</option>" +
-					    "<option value=\"dessert\">Dessert</option>" +
-					    "<option value=\"starter\">Starters</option>" +
-					    "<option value=\"drinks\">Drinks</option>" +
-					    "<option value=\"other\">Other</option>" +
+			    		"<option value=\"All\">All</option>" +
+					    "<option value=\"Main\">Main</option>" +
+					    "<option value=\"Desserts\">Dessert</option>" +
+					    "<option value=\"Appetizers\">Starters</option>" +
+					    "<option value=\"Drinks\">Drinks</option>" +
+					    "<option value=\"Other\">Other</option>" +
 					"</select>" +
 			    		
 			    	"</div>" +
@@ -62,29 +97,44 @@ var DishSelectorView = function (container, model) {
 var SelectorDishesLoop = function() {
 
 	for (var i = 0; i < FoodList.length; i++) {
-		console.log(FoodList[i].name);
-		id = FoodList[i].id
+		console.log(FoodList[i].RecipeID);
+		id = FoodList[i].RecipeID
 
 
 		
 
 
-		SelectorDishesString += "<div class=\"col-sm-3\">" +
-			"<div class=\"panel panel-warning\">" +
-	  			"<div class=\"panel-heading\">" +   FoodList[i].name +
+		SelectorDishesString += "<div class=\"col-sm-3 \">" +
+			"<div class=\"panel panel-warning \">" +
+	  			"<div class=\"panel-heading DishSelectorPanels\">" +   FoodList[i].Title +
 
 	  			// "<span><button id=\"" + "AddDish" + id + "\"class=\"button button-default glyphicon glyphicon-plus AddButton\"></button></span>" +
 	  			
-	  			"<span><button id=\"" + id + "\"class=\"button button-default glyphicon glyphicon glyphicon-plus AddButton DishInfoButton\"></button></span>" +
+	  			// "<span><button id=\"" + id + "\"class=\"button button-default glyphicon glyphicon glyphicon-plus AddButton DishInfoButton\"></button></span>" +
 
 
 	  			"</div>" + 
 	  			"<div class=\"panel-body\">" +
+	  				"<div class=\"col-xs-12\">" +
 
-	  				"<img src=\"images/" + FoodList[i].image + "\"></img>" +
+	  				"<div class=\"hovereffect\">" +
+	  							"<img src=\"" + FoodList[i].ImageURL + "\" class=\"img-rounded DishInfoButton\" height=\"200\" width=\"100%\" ></img>" +
+					        
+					            "<div id=\"" + id + "\" class=\"overlay DishInfoButton\">" +
+					               	"<p> " +
+										"<p>SELECT</p>" +
+									"</p> "+
+
+					                "<h2></h2>" +
+									
+					          "  </div>" +
+					  "  </div>" +
+					 "  </div>" +
+
+	  				
 
 	  			"</div>" +
-	  			"<div id =\"DishObject\" class=\"panel-footer\">" + FoodList[i].description +
+	  			"<div id =\"DishObject\" class=\"panel-footer\">" +  FoodList[i].Subcategory +
 	  			".</div>" +
 			"</div>" +
 		"</div>"
@@ -96,7 +146,7 @@ var SelectorDishesLoop = function() {
 
 	}
 
-	SelectorDishesLoop();
+	// SelectorDishesLoop();
 
 
 
@@ -109,25 +159,33 @@ var SelectorDishesLoop = function() {
 
 		// 	}
 		// }
+
+
+
+		
 			
 
 
-	this.update = function (arg) {
+	this.update = function (arg, data) {
 
 		if (arg == "TypeChange") {
-
+			console.log(data);
 		filter = "";
-		FoodList = model.getAllDishes(model.DishType);
+		FoodList = data;
+		// model.getAllDishes(model.DishType);
 
 		SelectorDishesString = [];
 		SelectorDishesLoop();
+		
 		$("#SelectorDishes").html(SelectorDishesString);
+		// $("#SelectorDishes").append(SpinnerString);
+
 
 
 		} else if (arg == "SearchInput") {
 
 
-			FoodList = model.getAllDishes(model.DishType, model.SearchString);
+			FoodList = data;
 
 			SelectorDishesString = [];
 			SelectorDishesLoop();
@@ -135,8 +193,7 @@ var SelectorDishesLoop = function() {
 
 
 
-		}
-
+		} 
 
 
 
@@ -154,7 +211,9 @@ var SelectorDishesLoop = function() {
 	$("#DishSelectorContainer").html(SelectorContainerString);
 	$("#SelectorFilter").html(SelectorFilterString);
 	
+	$(".SelectorSpinner").html(SpinnerString);
 	$("#SelectorDishes").html(SelectorDishesString);
+	
 
 	$("#numberOfGuests").val(model.getNumberOfGuests()); 
 
@@ -162,6 +221,8 @@ var SelectorDishesLoop = function() {
 
 	this.DishInfoButton = $(".DishInfoButton");
 	this.FilterMenu = $("#FilterMenu");
+
+
 	// this.FilterSearch = $("#FilterSearch");
 
 

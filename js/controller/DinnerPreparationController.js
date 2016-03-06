@@ -9,7 +9,7 @@ var DinnerPreparationController = function(view, model) {
 	stateController.dishSelectorView.container.show();
 	stateController.sideBarView.container.show();
 
-}
+	}
 
 	
 

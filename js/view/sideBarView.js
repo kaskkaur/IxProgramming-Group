@@ -6,20 +6,11 @@ var SideBarView = function (container, model) {
 	
 
 
-
-
 	var SideBarString = "";
 	var SideBarItemsString = "";
-	var FullMenu = model.getFullMenu();
+	var FullMenu = [];
 	var MenuTotal = model.getTotalMenuPrice();
 	var numberOfGuests = model.getNumberOfGuests();
-	
-
-
-
-	//var ItemPrice = model.getTotalDishPrice();
-	
-	
 	
 
 	 var DishLooper = function() {
@@ -27,14 +18,14 @@ var SideBarView = function (container, model) {
 
 	$.each(FullMenu, function (name, value) { 
 		var self = this;
-		id = value.id;
+		id = value.RecipeID;
 		console.log(id);
 		
 
 				SideBarItemsString +=	"<tr>" +
 								"<td>" + "<a class=\"btn btn-default btn-group-xs glyphicon glyphicon-remove RemoveButton\" id=\"" + "RemoveDish" + id + "\"></a>" + "</td>" +
-								"<td>"  + self.name + "</td>" +
-								"<td>" + model.getTotalDishPrice(id); +  "</td>" +
+								"<td>"  + self.Title + "</td>" +
+								"<td>" + "<b>" + model.getTotalDishPrice(id) + "</b>" +  "</td>" +
 
 
 								"</tr>"
@@ -45,11 +36,9 @@ var SideBarView = function (container, model) {
 
 
 
-
-
   }
 
-  DishLooper();
+
 
 
 	SideBarString +=
@@ -120,7 +109,7 @@ var SideBarView = function (container, model) {
 
 		this.update = function(arg) {
 
-			console.log(arg);
+			// console.log(arg);
 
 
 			if (arg === "guests") {
@@ -140,15 +129,18 @@ var SideBarView = function (container, model) {
 
 			} else if (arg === "AddItems") {
 
-				// alert("AddItems");
-				$("#MenuTotal").val(model.getTotalMenuPrice());
-
+				// alert("AddItems UPDATEFUNCTION sidebar");
+				
+				
 				FullMenu = model.getFullMenu();
+				// alert("do we get here");
 				console.log(FullMenu);
+				
 
 				SideBarItemsString = [];
 				DishLooper();
 				$("#SideBarItems").html(SideBarItemsString);
+				$("#MenuTotal").val(model.getTotalMenuPrice());
 				// self.ConfirmButton = $("#ConfirmButton");
 
 
@@ -160,7 +152,7 @@ var SideBarView = function (container, model) {
 
 
 				// alert("removing")
-				$("#MenuTotal").val(model.getTotalMenuPrice());
+				
 
 				FullMenu = model.getFullMenu();
 				
@@ -170,6 +162,7 @@ var SideBarView = function (container, model) {
 				DishLooper();
 				$("#SideBarItems").html(SideBarItemsString);
 				// self.RemoveButton = $(".RemoveButton");
+				$("#MenuTotal").val(model.getTotalMenuPrice());
 				console.log(self.RemoveButton)
 
 

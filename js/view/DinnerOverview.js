@@ -4,7 +4,7 @@ var DinnerOverview = function (container, model) {
 	model.addObserver(this);
 	this.container = container;
 	
-	var DinnerList = model.getFullMenu();
+	var DinnerList = [];
 	var GuestNumber = model.getNumberOfGuests();
 
 	
@@ -94,13 +94,13 @@ var DinnerOverview = function (container, model) {
 var OverviewDishesLooper = function () {
 	
 	for (var i = 0; i < DinnerList.length; i++) {
-		console.log(DinnerList[i].name);
-		id = DinnerList[i].id;
+		console.log(DinnerList[i].Title);
+		id = DinnerList[i].RecipeID;
 
 
 		OverviewDishesString += "<div class=\"col-sm-3\">" +
 							"<div class=\"panel panel-warning\">"+
-					  			"<div class=\"panel-heading\">"+ DinnerList[i].name +
+					  			"<div class=\"panel-heading\">"+ DinnerList[i].Title +
 
 					  			// "<span><button class=\"button button-default glyphicon glyphicon-plus AddButton\"></button></span>"+
 					  			
@@ -110,7 +110,7 @@ var OverviewDishesLooper = function () {
 					  			"</div>"+
 					  			"<div class=\"panel-body\">"+
 
-					  				"<img src=\"images/" + DinnerList[i].image + "\"></img>"+
+					  				"<img class=\"img-circle\" width=\"100%\" height=\"100%\" src=\"" + DinnerList[i].ImageURL + "\"></img>"+
 
 					  			"</div>"+
 					  			"<div class=\"panel-footer\">" + model.getTotalDishPrice(id) + " " + "SEK" + "</div>"+
@@ -155,7 +155,7 @@ var OverviewDishesLooper = function () {
 
 
 			} else if (arg === "AddItems") {
-
+				// alert("addItems?_overview")
 
 				DinnerList = model.getFullMenu();
 				console.log(DinnerList);

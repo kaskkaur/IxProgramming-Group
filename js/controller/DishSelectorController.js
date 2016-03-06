@@ -1,73 +1,90 @@
 var DishSelectorController = function (view, model) {
 
 
+// Initite the spinner routine
+		$(document).ajaxStart(function () {
+				// alert("ajaxstart");''
+				$(".spinner").fadeIn("fast");
+				
+				$("#SelectorDishes").hide();
+		       	
+		        
+		        
+		        
+		    }).ajaxStop(function () {
 
+		    	$(".spinner").fadeOut("fast");
+
+		        $("#SelectorDishes").show();
+
+		});
+
+
+
+		// Controller to enter DishView with the ID of the dish clicked
 		$("#DishSelectorContainer").on("click", ".DishInfoButton", function () {
 
-			// view.DishInfoButton
-			// alert("SAPselector");
-			
-	     	var id = this.id;
+			var id = this.id;
 		
 			model.currentID = id;
-			// alert("SAPselector");
-			
+		
+			model.getDishData(id);
 
 
-
-			console.log(model.currentID + "thisIsThecurrentID");
-			// model.notifyObservers("ID");
-
-			
-
-		model.getDishID();
+			console.log(id + "thisIsThecurrentID");
 
 		stateController.dishView.container.show();
-		
-		// stateController.sideBarView.container.show();
 
 		stateController.dishSelectorView.container.hide();
-
-		
-
-	});
-
-		
-		
-		view.FilterMenu.change(function() {
-			//alert("sap");
-
-
-			arg = view.FilterMenu.val()
-
-			// view.update(value);
-
-			model.DishType = arg;
-			// model.getAllDishes(value);
-			model.getDishType();			
-
 
 
 		});
 
+
+		// Controller to get dishes when a type is selected from the dropdown
+		view.FilterMenu.change(function() {
+
+			arg = view.FilterMenu.val()
+
+			model.DishType = arg;
+
+			model.getAllDishes(arg);
+
+
+		});
+
+
+		//Get dishes when the search icon is clicked
 		
-		$("#FilterSearch").on("keyup",  function() {
-			// alert("enterSearch");
+		$("#SearchButton").on("click",  function() {
 
-			value = $(this).val()
-			console.log(value);
 
-			// view.update(value);
+			value = $("#FilterSearch").val()
+			
 
 			model.SearchString = value;
 			model.getSearchString();
-
-			console.log(model.SearchString);
+			model.getAllDishes(model.DishType, value);
 			
 
 
+		});
 
+		//Get dishes when enter is pressed
+		$('#FilterSearch').keypress(function (e) {
+			
+			  if (e.which == 13) {
+			  	// alert("enter");
+			
+			value = $("#FilterSearch").val()
+			
 
+			model.SearchString = value;
+			model.getSearchString();
+			model.getAllDishes(model.DishType, value);
+			return false;
+			   
+			  }
 		});
 
 	

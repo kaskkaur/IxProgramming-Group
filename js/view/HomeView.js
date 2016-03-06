@@ -5,7 +5,7 @@ var HomeView = function (container, model) {
 
 
 
-		var HomeViewString = "";
+	var HomeViewString = "";
 
 
 
@@ -28,9 +28,6 @@ HomeViewString +=
 							"<type=\"button\" class=\"btn btn-default btn-custom\"> Start planning now </a>" + 
 
 
-			
-
-
 		"</div>" +
 
 			
@@ -39,15 +36,8 @@ HomeViewString +=
 	"</div>"
 
 
-
-
-
-
-
 		this.update = function(arg) {
-
-
-			
+	
 
 
 		}

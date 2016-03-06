@@ -9,7 +9,7 @@ var DinnerOverviewController = function(view, model) {
 	stateController.sideBarView.container.show();
 	stateController.dishSelectorView.container.show();
 
-}
+	}
 
 
 
@@ -21,7 +21,7 @@ var DinnerOverviewController = function(view, model) {
 	
 	stateController.dinnerPreparationView.container.show();
 
-}
+	}
 
 
 }
