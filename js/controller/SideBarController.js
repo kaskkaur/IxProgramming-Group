@@ -21,10 +21,6 @@ var SideBarController = function(view, model) {
 	});
 
 
-	
-
-
-
 		ConfirmButton.onclick = function() {
 
 
