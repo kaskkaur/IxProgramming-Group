@@ -72,8 +72,6 @@ var DinnerModel = function() {
 			// this.ObserversArray[i].updateInitial(arg, data);
 
 
-
-
 		}
 
 	};
@@ -351,30 +349,6 @@ this.addDishToMenu = function(id) {
 	menu.push(this.DishDataArray)
 	console.log(menu);
 
-
-		// for (var j = 0; j < menu.length; j++) {
-		// 	var obj = menu[j]
-			
-
-
-			
-
-
-
-
-		// for(var i = 0; i < dishes.length; i++) {
-		//     var obj = dishes[i];
-		//     var DishID = obj.id;
-		//  	if (DishID == id) {
-		 		// alert("ADD")
-		 		
-		   			// menu.push(this.DishDataArray);
-		   			// break;
-		   			
-	
-		   	// 	};
-
-		   	// };
 
 	
 	// console.log(menu);
